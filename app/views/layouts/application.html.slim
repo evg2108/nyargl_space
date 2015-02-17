@@ -2,8 +2,8 @@ doctype html
 html
   head
     title NyarglSpace
-    = stylesheet_link_tag    'application', media: 'all'
-    = javascript_include_tag 'application'
+    = stylesheet_link_tag    current_asset_name, media: 'all'
+    = javascript_include_tag current_asset_name
     = csrf_meta_tags
   body
     = yield

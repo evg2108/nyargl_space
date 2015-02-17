@@ -11,5 +11,14 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe AuthorsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#current_asset_name' do
+    let(:test_controller_name) { 'test_controller_name' }
+    let(:test_action_name) { 'test_action_name' }
+
+    it 'returns path to asset using controller_name and action_name' do
+      allow(helper).to receive(:controller_name).and_return(test_controller_name)
+      allow(helper).to receive(:action_name).and_return(test_action_name)
+      expect(helper.current_asset_name).to eq("application/#{test_controller_name}/#{test_action_name}")
+    end
+  end
 end

@@ -1,1 +1,9 @@
-| Список авторов
+header.row
+  .col-sm-12
+    h1 Авторы
+section.row
+  = render partial: 'authors/author_ticket', collection: authors
+
+footer.row
+  .col-sm-12
+    = will_paginate authors, renderer: BootstrapPagination::Rails

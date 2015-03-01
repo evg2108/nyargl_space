@@ -19,5 +19,10 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
+ru:
+  model:
+    menu_item:
+      authors: Авторы
+      articles: Произведения
+      blogs: Блоги
+      forums: Форум

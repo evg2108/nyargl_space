@@ -1,1 +1,24 @@
 @import "layouts/application";
+
+.author {
+  margin: 3px 0 3px;
+
+  .list_item {
+    height: 132px;
+    cursor: pointer;
+
+    &:hover {
+      background: #f5f5f5;
+    }
+
+    .content {
+      height: 100%;
+    }
+
+    .thumb {
+      width: 100px;
+      height: 100px;
+      border: #eee solid 1px;
+    }
+  }
+}

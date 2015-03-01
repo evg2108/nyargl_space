@@ -2,8 +2,20 @@ doctype html
 html
   head
     title NyarglSpace
+    meta name="viewport" content="width=device-width, initial-scale=1"
     = stylesheet_link_tag    current_asset_name, media: 'all'
     = javascript_include_tag current_asset_name
     = csrf_meta_tags
   body
-    = yield
+    section.container-fluid
+      = render partial: 'shared/header'
+      section.row
+        aside.left_side.col-lg-2.col-md-2.col-sm-12.col-xs-12
+          .row.visible-lg-block.visible-md-block
+            .left_menu_placeholder
+          = render partial: 'shared/left_menu_items', object: menu_items
+        section.main_content.col-lg-8.col-md-8.col-sm-12.col-xs-12
+          = yield
+        aside.right_side.col-lg-2.col-md-2.col-sm-12.col-xs-12
+          = yield :right_side
+    = render partial: 'shared/footer'

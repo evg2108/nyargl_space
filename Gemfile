@@ -31,6 +31,9 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'slim-rails'
 gem 'decent_exposure'
+gem 'will_paginate-bootstrap'
+gem 'russian'
+gem 'draper'
 
 group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -42,5 +45,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'database_cleaner', '~> 1.3.0'
+
+  gem 'pry-rails'
 end
 

@@ -15,4 +15,13 @@ class ApplicationController < ActionController::Base
   decent_configuration do
     strategy DecentExposure::StrongParametersStrategy
   end
+
+  expose(:menu_items){
+    [
+        MenuItem.new(:authors, :authors, :index),
+        MenuItem.new(:articles, :articles, :index),
+        MenuItem.new(:blogs, :blogs, :index),
+        MenuItem.new(:forums, :forums, :index),
+    ]
+  }
 end

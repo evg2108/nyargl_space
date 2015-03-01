@@ -1,0 +1,21 @@
+$footer_height: 60px;
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: $footer_height;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  min-height: $footer_height;
+
+  .container-fluid {
+    padding-top: 9px;
+    border-top: 1px solid #eeeeee;
+  }
+}

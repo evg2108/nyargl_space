@@ -55,4 +55,7 @@ Rails.application.routes.draw do
   #   end
 
   resources :authors, only: [:index, :show]
+  resources :articles, only: [:index, :show]
+  resources :blogs, only: [:index, :show]
+  resources :forums, only: [:index, :show]
 end

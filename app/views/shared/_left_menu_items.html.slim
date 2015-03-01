@@ -1,0 +1,4 @@
+.row
+  .col-xs-offset-0.col-xs-12
+    - left_menu_items.each do |left_menu_item|
+      = present(left_menu_item).to_link

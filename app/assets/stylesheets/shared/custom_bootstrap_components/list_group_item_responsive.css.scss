@@ -15,9 +15,15 @@ a.list-group-item-responsive {
   border: 1px solid $list-group-border;
 
   @media (min-width: $screen-min) {
+    font-size: 70%;
+    font-weight: bold;
     margin-right: -1px;
     text-align: center;
     padding: 10px 0;
+  }
+  @media (min-width: $screen-xs-min) {
+    font-size: 100%;
+    font-weight: normal;
   }
   @media (min-width: $screen-md-min) {
     margin-bottom: -1px;

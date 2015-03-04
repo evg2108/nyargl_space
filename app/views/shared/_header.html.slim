@@ -1,4 +1,14 @@
 header.row
   .col-sm-12
-    .page-header
-      | test
+    nav.navbar.navbar-default
+      .container-fluid
+        a.navbar-header href=root_path
+          .navbar-brand
+            = image_tag '/images/logo_20.png', alt: 'Brand'
+        = simple_form_for User.new, wrapper: :navbar_form, html: { class: %w(navbar-form navbar-right) } do |f|
+          = f.input :email
+          = f.input :password
+          .form-group
+            .btn-group
+              = f.button :submit
+              = link_to 'Регистрация', new_user_path, class: 'btn btn-default'

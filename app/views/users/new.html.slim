@@ -1,0 +1,9 @@
+header.row
+  .col-sm-12.text-center
+    h1 Регистрация
+article.row
+  .col-sm-6.col-sm-offset-3.text-center
+    = simple_form_for user do |f|
+      = f.input :email
+      = f.input :password
+      = f.button :submit, class: 'btn-block'

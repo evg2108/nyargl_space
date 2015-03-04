@@ -1,0 +1,4 @@
+ru:
+  error_messages:
+    email:
+      bad_format: неверный формат e-mail

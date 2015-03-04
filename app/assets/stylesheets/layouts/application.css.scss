@@ -8,3 +8,14 @@
 @import "shared/sticky_footer";
 @import "shared/custom_bootstrap_components/list_group_item_responsive";
 @import "shared/placeholder_blocks";
+
+.navbar-brand img {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0 2px;
+  background: forestgreen;
+}
+
+section.main_content {
+  margin-bottom: 20px;
+}

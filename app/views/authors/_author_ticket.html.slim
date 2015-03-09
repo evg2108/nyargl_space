@@ -1,11 +1,11 @@
 article.author.col-sm-6
   .panel.panel-default
-    /.panel-heading # this may used for admin abilities - links for moderation or sorting functions
+    /.panel-heading # NOTE: this may used for admin abilities - links for moderation or sorting functions
     .list_item.panel-body
       .content.media
         .media-left
           = image_tag '', class: 'thumb media-object'
         .media-body
           h4.media-heading
-            = link_to author_ticket.full_name, author_path(author_ticket)
+            = link_to author_ticket.full_name, author_path(author_ticket, anchor: CONTENT_SECTION)
           = author_ticket.about_author

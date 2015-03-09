@@ -6,10 +6,10 @@ class MenuItemPresenter < BasePresenter
   end
 
   def active?
-    h.controller_name.to_s == object.controller_name.to_s && h.action_name.to_s == object.action_name.to_s
+    h.current_page?(object.page_identifier)
   end
 
   def link
-    h.url_for(controller: object.controller_name, action: object.action_name)
+    h.url_for(object.page_identifier.merge(anchor: CONTENT_SECTION))
   end
 end

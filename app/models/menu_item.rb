@@ -6,4 +6,8 @@ class MenuItem
     self.controller_name = controller
     self.action_name = action
   end
+
+  def page_identifier
+    { controller: controller_name, action: action_name }
+  end
 end

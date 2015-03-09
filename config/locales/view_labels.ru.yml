@@ -1,0 +1,5 @@
+ru:
+  shared:
+    header:
+      registration: 'Регистрация'
+      log_out: 'Выход'

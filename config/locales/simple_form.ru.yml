@@ -3,7 +3,7 @@ ru:
     "yes": 'Yes'
     "no": 'No'
     required:
-      text: 'required'
+      text: 'Обязательно для заполнения'
       mark: '*'
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
@@ -12,11 +12,11 @@ ru:
       default_message: "Please review the problems below:"
     placeholders:
       user:
-        email: E-mail
+        email: e-mail
         password: Пароль
     labels:
       user:
-        email: E-mail
+        email: e-mail
         password: Пароль
 
   helpers:

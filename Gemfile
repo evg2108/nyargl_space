@@ -34,6 +34,7 @@ gem 'decent_exposure'
 gem 'will_paginate-bootstrap'
 gem 'russian'
 gem 'draper'
+gem 'pundit'
 
 gem 'simple_form'
 

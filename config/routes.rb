@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root to: redirect('/authors', status: 303)
 
+  resource :session, only: [:create, :destroy]
   resources :users, only: [:new, :create]
   # resource :profile, only: [:edit]
 

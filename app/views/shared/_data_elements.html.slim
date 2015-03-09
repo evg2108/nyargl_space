@@ -1,0 +1,3 @@
+- FlashMessenger::MESSAGE_TYPES.each do |message_type|
+  - if (message = flash[message_type])
+    .popup_message data-message-type=message_type data-message=message

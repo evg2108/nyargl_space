@@ -1,0 +1,1 @@
+CONTENT_SECTION = 'content'

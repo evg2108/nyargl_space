@@ -2,13 +2,29 @@ header.row
   .col-sm-12
     nav.navbar.navbar-default
       .container-fluid
-        a.navbar-header href=root_path
-          .navbar-brand
+        .navbar-header
+          = button_tag type: 'button', class: 'navbar-toggle collapsed btn btn-default', data: { toggle: 'collapse', target: '#collapsed_menu' } do
+            span.sr-only Меню навигации
+            span.glyphicon.glyphicon-menu-hamburger
+          a.navbar-brand href= root_path
             = image_tag '/images/logo_20.png', alt: 'Brand'
-        = simple_form_for User.new, wrapper: :navbar_form, html: { class: %w(navbar-form navbar-right) } do |f|
-          = f.input :email
-          = f.input :password
-          .form-group
-            .btn-group
-              = f.button :submit
-              = link_to 'Регистрация', new_user_path, class: 'btn btn-default'
+        #collapsed_menu.collapse.navbar-collapse.in
+          - unless logged_in?
+            = simple_form_for User.new, url: session_path, wrapper: :navbar_form, html: { class: %w(navbar-form navbar-right) } do |f|
+              = f.input :email
+              = f.input :password
+              .form-group
+                .btn-group
+                  = f.button :submit
+                  = link_to t('.registration'), new_user_path(anchor: CONTENT_SECTION), class: 'btn btn-default'
+          - else
+            - # NOTE: если javascript отключен, то ссылка с указанием метода 'delete' не будет работать, вместо этого используем форму
+            - #   со скрытым полем _method и значением delete + кнопку с типом submit. Тогда всё будет работать даже без JS
+            = form_tag session_path do |f|
+              = hidden_field_tag :_method, 'delete'
+              = button_tag type: :submit, class: 'btn btn-default navbar-btn pull-right' do
+                span.glyphicon.glyphicon-log-out
+                = " #{t('.log_out')}"
+              span.navbar-text.pull-right
+                = current_user.email
+

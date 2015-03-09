@@ -2,3 +2,6 @@ ru:
   error_messages:
     email:
       bad_format: неверный формат e-mail
+  messages:
+    error:
+      authentication: 'логин или пароль введены неверно'

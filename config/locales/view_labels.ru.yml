@@ -1,5 +1,6 @@
 ru:
   shared:
-    header:
+    log_in_form:
       registration: 'Регистрация'
+    log_out_form:
       log_out: 'Выход'

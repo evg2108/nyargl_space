@@ -10,21 +10,7 @@ header.row
             = image_tag '/images/logo_20.png', alt: 'Brand'
         #collapsed_menu.collapse.navbar-collapse.in
           - unless logged_in?
-            = simple_form_for User.new, url: session_path, wrapper: :navbar_form, html: { class: %w(navbar-form navbar-right) } do |f|
-              = f.input :email
-              = f.input :password
-              .form-group
-                .btn-group
-                  = f.button :submit
-                  = link_to t('.registration'), new_user_path(anchor: CONTENT_SECTION), class: 'btn btn-default'
+            = render partial: 'shared/log_in_form'
           - else
-            - # NOTE: если javascript отключен, то ссылка с указанием метода 'delete' не будет работать, вместо этого используем форму
-            - #   со скрытым полем _method и значением delete + кнопку с типом submit. Тогда всё будет работать даже без JS
-            = form_tag session_path do |f|
-              = hidden_field_tag :_method, 'delete'
-              = button_tag type: :submit, class: 'btn btn-default navbar-btn pull-right' do
-                span.glyphicon.glyphicon-log-out
-                = " #{t('.log_out')}"
-              span.navbar-text.pull-right
-                = current_user.email
+            = render partial: 'shared/log_out_form'
 

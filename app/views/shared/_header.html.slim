@@ -9,8 +9,5 @@ header.row
           a.navbar-brand href= root_path
             = image_tag '/images/logo_20.png', alt: 'Brand'
         #collapsed_menu.collapse.navbar-collapse.in
-          - unless logged_in?
-            = render partial: 'shared/log_in_form'
-          - else
-            = render partial: 'shared/log_out_form'
+          = render partial: (logged_in? ? 'shared/log_out_form' : 'shared/log_in_form')
 

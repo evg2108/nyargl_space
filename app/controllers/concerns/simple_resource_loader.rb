@@ -51,6 +51,7 @@ module SimpleResourceLoader
   # TODO need to write a test
   def plural_resources
     result = self.class.resource_class.all
+    result = policy_scope(result) if respond_to?(:policy_scope) # Pundit supporting
     per_page = self.class.per_page
     result = result.paginate(page: page_num, per_page: per_page) if per_page
     self.class.decorator_class ? result.decorate : result

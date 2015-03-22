@@ -1,0 +1,10 @@
+#author_page.profile_page
+  = simple_form_for current_author do |f|
+    = f.input :enabled, as: :toggle_button, tooltip_placement: 'right'
+  hr
+  = simple_form_for current_author do |f|
+    = f.input :last_name
+    = f.input :first_name
+    = f.input :patronymic
+    = f.input :about_author, input_html: { rows: 5 }
+    = f.button :submit

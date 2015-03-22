@@ -1,5 +1,8 @@
 ru:
-#  activerecord:
+  activerecord:
+    errors:
+      messages:
+        blank: Пожалуйста, заполните это поле
 #    models:
 #      user:
 #        one: "dfgdfg"

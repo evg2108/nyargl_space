@@ -13,7 +13,6 @@ class UsersController < ApplicationController
 
   def create
     if user.save
-      user.author = Author.new
       redirect_to root_path
     else
       save_to_session_file_storage(user, :email, :password)

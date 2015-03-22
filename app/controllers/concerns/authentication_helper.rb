@@ -6,9 +6,20 @@ module AuthenticationHelper
     # For APIs, you may want to use :null_session instead.
     protect_from_forgery with: :exception
 
-    expose(:current_user) { logged_in? ? User.find(session[:user_id]) : User.new(role: Roles.guest_role).freeze }
+    expose(:current_user) { session[:user_id].present? && (user = User.where(id: session[:user_id]).first) ? user : User.new(role: Roles.guest_role).freeze }
 
-    expose(:logged_in?) { session[:user_id].present? }
+    expose(:logged_in?) { !current_user.guest?  }
+
+    expose(:current_author) do
+      if logged_in?
+        unless (result = current_user.author)
+          result = Author.new(user_id: current_user.id)
+          result.save(validate: false)
+        end
+        result.valid?
+        result
+      end
+    end
   end
 
   def log_in(user)

@@ -26,3 +26,6 @@ ru:
       articles: Произведения
       blogs: Блоги
       forums: Форум
+      profile:
+        author_page: 'Ваша страница'
+        change_password: 'Смена пароля'

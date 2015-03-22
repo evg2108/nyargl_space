@@ -5,5 +5,4 @@
   = button_tag type: :submit, class: 'btn btn-default navbar-btn pull-right' do
     span.glyphicon.glyphicon-log-out
     = " #{t('.log_out')}"
-  span.navbar-text.pull-right
-    = current_user.email
+  = link_to current_user.email, author_page_profile_path, class: 'navbar-text pull-right', data: { toggle: 'tooltip', placement: 'bottom' }, title: 'Перейти в профиль'

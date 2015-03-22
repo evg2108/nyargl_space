@@ -1,15 +1,15 @@
 ru:
   simple_form:
-    "yes": 'Yes'
-    "no": 'No'
+    "yes": 'Да'
+    "no": 'Нет'
     required:
-      text: 'Обязательно для заполнения'
-      mark: '*'
+#      text: 'Обязательно для заполнения'
+#      mark: '<span class="glyphicon glyphicon-pushpin"></span>'
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
-      # html: '<abbr title="required">*</abbr>'
+      html: '<abbr title="Обязательно для заполнения" data-toggle="tooltip"><span class="glyphicon glyphicon-pushpin"></span></abbr>'
     error_notification:
-      default_message: "Please review the problems below:"
+      default_message: "Возникли ошибки:"
     placeholders:
       user:
         email: e-mail
@@ -18,11 +18,27 @@ ru:
       user:
         email: e-mail
         password: Пароль
+      author:
+        first_name: Имя
+        last_name: Фамилия
+        patronymic: Отчество
+        about_author: О себе
+    toggle_buttons:
+      author:
+        enabled:
+          value:
+            "true": 'Отключить страничку'
+            "false": 'Активировать страничку'
+          title:
+            "true": 'Сейчас ваша аворская страница активна. Нажмите эту кнопку, чтобы отключить её.'
+            "false": 'Сейчас ваша аворская страница не активна. Нажмите эту кнопку, чтобы активировать её.'
 
   helpers:
     submit:
       user:
         create: "вход"
+      author:
+        update: Сохранить
     # Examples
     # labels:
     #   defaults:

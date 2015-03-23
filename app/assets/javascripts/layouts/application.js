@@ -16,4 +16,7 @@ $(document).ready(function() {
     $('#collapsed_menu').removeClass('in'); // if JS allowed
 
     $('body').tooltip({selector: '[data-toggle="tooltip"]'});
+
+    //Bootlint: https://github.com/twbs/bootlint
+    //(function(){var s=document.createElement("script");s.onload=function(){bootlint.showLintReportForCurrentDocument([]);};s.src="https://maxcdn.bootstrapcdn.com/bootlint/latest/bootlint.min.js";document.body.appendChild(s)})();
 });

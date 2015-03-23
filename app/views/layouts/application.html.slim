@@ -2,7 +2,9 @@ doctype html
 html
   head
     title NyarglSpace
-    meta name="viewport" content="width=device-width, initial-scale=1"
+    meta name="viewport" content="width=device-width, initial-scale=1"/
+    meta http-equiv="X-UA-Compatible" content="IE=edge"/
+    meta charset="utf-8"/
     = stylesheet_link_tag    current_asset_name, media: 'all'
     = javascript_include_tag current_asset_name
     = csrf_meta_tags
@@ -12,13 +14,14 @@ html
     section.container-fluid
       = render partial: 'shared/header'
       section.row id=CONTENT_SECTION
-        aside.left_side.col-lg-2.col-md-2.col-sm-12.col-xs-12
+        aside.left_side.col-md-2.col-xs-12
           .row.visible-lg-block.visible-md-block
-            .left_menu_placeholder
+            .col-xs-12
+              .left_menu_placeholder
           = render partial: 'shared/left_menu_items', object: menu_items
-        section.main_content.col-lg-8.col-md-8.col-sm-12.col-xs-12
+        section.main_content.col-md-8.col-xs-12
           = render partial: 'shared/page_title', object: get_page_title if page_title_exist?
           = yield
-        aside.right_side.col-lg-2.col-md-2.col-sm-12.col-xs-12
+        aside.right_side.col-md-2.col-xs-12
           = yield :right_side
     = render partial: 'shared/footer'

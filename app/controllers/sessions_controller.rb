@@ -1,7 +1,10 @@
 class SessionsController < ApplicationController
   def create
+    authorize :session
     try_autenticate
     redirect_to :back
+  rescue Pundit::NotAuthorizedError
+    redirect_to author_page_profile_path(anchor: CONTENT_SECTION), status: 303
   end
 
   def destroy

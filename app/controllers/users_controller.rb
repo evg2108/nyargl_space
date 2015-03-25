@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
   include SessionFileStorage
 
+  before_filter { authorize :registration, :create? }
+
+  rescue_from Pundit::NotAuthorizedError do
+    redirect_to author_page_profile_path(anchor: CONTENT_SECTION), status: 303
+  end
+
   expose(:user) do
     if params[:user]
       User.new(user_params)

@@ -26,4 +26,22 @@ function initToggleButtons(error_callback) {
             error: error_callback
         });
     });
+
+    $('form').on('mouseenter', 'input.toggle_button[type="submit"]', function(e) {
+        var _this = $(this);
+        var state = _this.data('state').toString() == 'true';
+        _this.val(_this.data(state + '-hover'));
+        _this.removeClass('btn-danger');
+        _this.removeClass('btn-success');
+        _this.addClass(state ? 'btn-danger' : 'btn-success');
+    });
+
+    $('form').on('mouseleave', 'input.toggle_button[type="submit"]', function(e) {
+        var _this = $(this);
+        var state = _this.data('state').toString() == 'true';
+        _this.val(_this.data(state + '-value'));
+        _this.removeClass('btn-danger');
+        _this.removeClass('btn-success');
+        _this.addClass(state ? 'btn-success' : 'btn-danger');
+    });
 }

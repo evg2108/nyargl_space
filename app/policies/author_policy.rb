@@ -3,6 +3,10 @@ class AuthorPolicy < ApplicationPolicy
     !user.guest? && user.author == record
   end
 
+  def show?
+    record && record.valid? && record.enabled?
+  end
+
   class Scope < Scope
     def resolve
       if @user.admin?

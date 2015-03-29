@@ -35,6 +35,7 @@ gem 'will_paginate-bootstrap'
 gem 'russian'
 gem 'draper'
 gem 'pundit'
+gem 'friendly_id', '~> 5.1'
 
 gem 'simple_form'
 

@@ -1,3 +1,5 @@
+# simple_form_bootstrap_toggle_button
+#
 # Usage:
 #
 # for using this input set up "as" param in :toggle_button
@@ -13,8 +15,15 @@ class ToggleButtonInput < SimpleForm::Inputs::Base
   def input(wrapper_options)
     cond_result = object.send("#{attribute_name}?")
 
+    state_class = cond_result ? 'btn-success' : 'btn-danger'
+
+    input_html_classes << state_class
+
     %i(value title).each do |attr|
       input_html_options[attr] = I18n.t("simple_form.toggle_buttons.#{object_name}.#{attribute_name}.#{attr}.#{cond_result}", default: "Now it's #{cond_result}. Click this button to switch #{cond_result ? 'off' : 'on'}")
+    end
+
+    %i(value title hover).each do |attr|
       input_html_options["data-false-#{attr}"] = I18n.t("simple_form.toggle_buttons.#{object_name}.#{attribute_name}.#{attr}.false", default: "#{attr}: Now it's false. Click this button to switch on")
       input_html_options["data-true-#{attr}"] = I18n.t("simple_form.toggle_buttons.#{object_name}.#{attribute_name}.#{attr}.true", default: "#{attr}: Now it's true. Click this button to switch off")
     end

@@ -5,22 +5,12 @@ class AuthorsController < ApplicationController
 
   self.per_page = 10
 
-  rescue_from Pundit::NotAuthorizedError do
-    respond_to do |format|
-      format.html do
-        set_error_message :profile, :not_authorized
-        redirect_to root_path, status: 303
-      end
+  before_filter :authorization, only: [:show, :update]
 
-      format.json do
-        render json: { message: error_message(:profile, :not_authorized) }, status: :unprocessable_entity
-      end
-    end
-  end
+  rescue_from(Pundit::NotAuthorizedError){ send("authorization_error_#{action_name}") }
 
   def update
-    authorize author
-    result = author.save.present?
+    result = author.save
     respond_to do |format|
       format.html do
         if result
@@ -45,5 +35,27 @@ class AuthorsController < ApplicationController
 
   def author_params
     params.require(:author).permit(:first_name, :last_name, :patronymic, :about_author, :enabled)
+  end
+
+  def authorization
+    authorize author
+  end
+
+  def authorization_error_update
+    respond_to do |format|
+      format.html do
+        set_error_message :profile, :not_authorized
+        redirect_to root_path, status: 303
+      end
+
+      format.json do
+        render json: { message: error_message(:profile, :not_authorized) }, status: :unprocessable_entity
+      end
+    end
+  end
+
+  def authorization_error_show
+    set_error_message :author, :show, :not_active
+    redirect_to author_page_profile_path, status: 303
   end
 end

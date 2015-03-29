@@ -1,8 +1,8 @@
 #author_page.profile_page
-  = simple_form_for current_author do |f|
+  = simple_form_for current_author, url: author_path(current_author.id) do |f|
     = f.input :enabled, as: :toggle_button, tooltip_placement: 'right'
   hr
-  = simple_form_for current_author do |f|
+  = simple_form_for current_author, url: author_path(current_author.id) do |f|
     = f.input :last_name
     = f.input :first_name
     = f.input :patronymic

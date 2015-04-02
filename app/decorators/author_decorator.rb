@@ -14,4 +14,12 @@ class AuthorDecorator < Draper::Decorator
     h.truncate(about_author, length: 230, separator: ' ')
   end
 
+  def about_author_formatted
+    result = []
+    about_author.split("\n").each do |paragraph|
+      result << h.content_tag(:p, paragraph, class: 'text-justify') if paragraph.present?
+    end
+    result.join.html_safe if result.any?
+  end
+
 end

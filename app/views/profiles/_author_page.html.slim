@@ -1,4 +1,4 @@
-#author_page.profile_page
+#author_page.profile_page.col-xs-12
   = simple_form_for current_author, url: author_path(current_author.id) do |f|
     = f.input :enabled, as: :toggle_button, tooltip_placement: 'right'
   hr

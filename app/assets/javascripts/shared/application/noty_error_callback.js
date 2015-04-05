@@ -1,8 +1,7 @@
-function noty_error_callback(xhr) {
-    var data_elements = $('.data_elements');
-    data_elements.find('.popup_message').remove();
+function noty_error_callback(message) {
+    noty_show_message(message, 'error');
+}
 
-    var new_popup = $('<div>', { class: 'popup_message', 'data-message-type': 'error', 'data-message': xhr.responseJSON.message });
-    data_elements.append(new_popup);
-    noty_popups_show();
+function noty_success_callback(message) {
+    noty_show_message(message, 'success');
 }

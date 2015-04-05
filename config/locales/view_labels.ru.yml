@@ -4,3 +4,6 @@ ru:
       registration: 'Регистрация'
     log_out_form:
       log_out: 'Выход'
+  profiles:
+    change_password:
+      submit: 'Сменить пароль'

@@ -3,6 +3,10 @@
 //= require shared/application/noty_error_callback.js
 //= require_self
 
+function _error_callback(xhr) {
+    noty_error_callback(xhr.responseJSON.message);
+}
+
 $(document).ready(function() {
-    initToggleButtons(noty_error_callback);
+    initToggleButtons(_error_callback);
 });

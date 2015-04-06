@@ -1,0 +1,12 @@
+- no_index
+
+header.row
+  .col-sm-12.text-center
+    h1 Забыли пароль?
+    p Введите адрес своей электронной почты и нажмите кнопку "Выслать новый пароль". Новый пароль будет прислан на вашу почту.
+article.row
+  .col-sm-6.col-sm-offset-3.text-center
+    = simple_form_for :user, url: password_regeneration_path do |f|
+      = f.input :email
+      = f.button :submit, class: 'btn-block', value: t('.submit')
+        / TODO нужно использовать капчу чтобы предотвратить ddos атаку и запретить регистрироваться ботам

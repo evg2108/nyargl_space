@@ -36,6 +36,7 @@ gem 'russian'
 gem 'draper'
 gem 'pundit'
 gem 'friendly_id', '~> 5.1'
+gem 'keepass-password-generator'
 
 gem 'simple_form'
 

@@ -7,3 +7,6 @@ ru:
   profiles:
     change_password:
       submit: 'Сменить пароль'
+  password_regenerations:
+    show:
+      submit: 'Выслать новый пароль'

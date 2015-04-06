@@ -29,3 +29,6 @@ ru:
       profile:
         author_page: 'Ваша страница'
         change_password: 'Смена пароля'
+  mailers:
+    password_regeneration:
+      subject: Ваш новый пароль от NyarglSpace

@@ -4,4 +4,6 @@
   .form-group
     .btn-group
       = f.button :submit
-      = link_to t('.registration'), new_user_path(anchor: CONTENT_SECTION), class: 'btn btn-default'
+      = link_to t('.registration'), new_user_path(anchor: CONTENT_SECTION), class: 'btn btn-default', rel: 'nofollow'
+      = link_to password_regeneration_path(anchor: CONTENT_SECTION), class: 'btn btn-default', title: 'Забыл пароль? Жми сюда!', data: { toggle: 'tooltip', placement: 'auto' }, rel: 'nofollow' do
+        span.glyphicon.glyphicon-question-sign

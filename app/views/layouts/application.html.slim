@@ -5,6 +5,8 @@ html
     meta name="viewport" content="width=device-width, initial-scale=1"/
     meta http-equiv="X-UA-Compatible" content="IE=edge"/
     meta charset="utf-8"/
+    - if no_index?
+      meta name="robots" content="noindex"/
     = stylesheet_link_tag    current_asset_name, media: 'all'
     = javascript_include_tag current_asset_name
     = csrf_meta_tags

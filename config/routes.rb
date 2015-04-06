@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resource :session, only: [:create, :destroy]
   resources :users, only: [:new, :create, :update]
+  resource :password_regeneration, only: [:show, :create]
   resource :profile, only: [] do
     get 'author_page', as: :author_page
     get 'change_password', as: :change_password

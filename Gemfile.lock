@@ -85,6 +85,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.2)
+    keepass-password-generator (0.1.1)
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -215,6 +216,7 @@ DEPENDENCIES
   friendly_id (~> 5.1)
   jbuilder (~> 2.0)
   jquery-rails
+  keepass-password-generator
   pg
   pry-rails
   pundit

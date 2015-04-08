@@ -5,5 +5,6 @@
   = button_tag type: :submit, class: 'btn btn-default navbar-btn pull-right' do
     span.glyphicon.glyphicon-log-out
     = " #{t('.log_out')}"
-= link_to current_user.email, author_page_profile_path, class: 'navbar-text pull-right', data: { toggle: 'tooltip', placement: 'bottom' }, title: 'Перейти в профиль'
-= link_to 'Обо мне', author_path(current_author.has_slug? ? current_author : current_author.id), class: 'navbar-text pull-right', data: { toggle: 'tooltip', placement: 'bottom' }, title: 'Перейти к авторской страничке'
+.pull-right
+  = link_to 'Обо мне', author_path(current_author.has_slug? ? current_author : current_author.id), class: 'btn btn-link navbar-btn', data: { toggle: 'tooltip', placement: 'bottom' }, title: 'Перейти к авторской страничке'
+  = link_to current_user.email, author_page_profile_path, class: 'btn btn-link navbar-btn', data: {toggle: 'tooltip', placement: 'bottom'}, title: 'Перейти в профиль'

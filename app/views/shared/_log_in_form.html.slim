@@ -1,9 +1,3 @@
-= simple_form_for User.new, url: session_path, wrapper: :navbar_form, html: { class: %w(navbar-form navbar-right) } do |f|
-  = f.input :email
-  = f.input :password
-  .form-group
-    .btn-group
-      = f.button :submit
-      = link_to t('.registration'), new_user_path(anchor: CONTENT_SECTION), class: 'btn btn-default', rel: 'nofollow'
-      = link_to password_regeneration_path(anchor: CONTENT_SECTION), class: 'btn btn-default', title: 'Забыл пароль? Жми сюда!', data: { toggle: 'tooltip', placement: 'auto' }, rel: 'nofollow' do
-        span.glyphicon.glyphicon-question-sign
+.pull-right
+  = link_to t('.enter_to_site'), new_session_path(anchor: CONTENT_SECTION), class: 'btn btn-link navbar-btn', rel: 'nofollow'
+  = link_to t('.registration'), new_user_path(anchor: CONTENT_SECTION), class: 'btn btn-link navbar-btn', rel: 'nofollow'

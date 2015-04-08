@@ -1,0 +1,14 @@
+- no_index
+
+header.row
+  .col-sm-12.text-center
+    h1 Вход на сайт
+article.row
+  .col-sm-6.col-sm-offset-3.text-center
+    / TODO нужно использовать капчу чтобы предотвратить ddos атаку и запретить регистрироваться ботам
+    = simple_form_for User.new, url: session_path do |f|
+      = f.input :email
+      = f.input :password
+      .form-group
+        = f.button :submit, value: t('.login')
+        = link_to 'Забыли пароль?', password_regeneration_path(anchor: CONTENT_SECTION), class: 'btn btn-link', title: 'Забыл пароль? Жми сюда!', data: { toggle: 'tooltip', placement: 'auto' }, rel: 'nofollow'

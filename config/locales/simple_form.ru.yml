@@ -39,7 +39,7 @@ ru:
   helpers:
     submit:
       user:
-        create: "вход"
+        create: "Зарегистрироваться"
       author:
         update: Сохранить
     # Examples

@@ -1,4 +1,10 @@
 class SessionsController < ApplicationController
+  def new
+    authorize :session
+  rescue Pundit::NotAuthorizedError
+    redirect_to root_path(anchor: CONTENT_SECTION), status: 303
+  end
+
   def create
     authorize :session
     try_autenticate

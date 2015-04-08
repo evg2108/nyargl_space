@@ -2,8 +2,12 @@ ru:
   shared:
     log_in_form:
       registration: 'Регистрация'
+      enter_to_site: 'Вход'
     log_out_form:
       log_out: 'Выход'
+  sessions:
+    new:
+      login: 'Войти на сайт'
   profiles:
     change_password:
       submit: 'Сменить пароль'

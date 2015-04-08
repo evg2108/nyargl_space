@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   root to: redirect('/authors', status: 303)
 
-  resource :session, only: [:create, :destroy]
+  resource :session, only: [:create, :destroy] do
+    get 'once_login', on: :collection, as: :once_login
+  end
   resources :users, only: [:new, :create, :update]
   resource :password_regeneration, only: [:show, :create]
   resource :profile, only: [] do

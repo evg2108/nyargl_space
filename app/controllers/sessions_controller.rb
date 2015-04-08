@@ -12,6 +12,21 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
+  def once_login
+    email = params[:email]
+    token = params[:temporary_token]
+    if email.present? && token.present?
+      user = User.find_by_email email
+      if user.temporary_token == token
+        log_in user
+        user.update_attribute(:temporary_token, nil)
+        redirect_to change_password_profile_path(anchor: CONTENT_SECTION)
+        return
+      end
+    end
+    redirect_to root_path
+  end
+
   private
 
   def try_autenticate

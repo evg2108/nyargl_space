@@ -12,10 +12,10 @@ class PasswordRegenerationsController < ApplicationController
     user = User.find_by_email(email)
 
     if user
-      #TODO сгенерировать новый пароль и выслать в письме, оповестить польователя об успехе
       new_password = KeePass::Password.generate('A{6}s{3}')
-      user.update_attribute(:password, new_password)
-      PasswordRegeneration.send_new_password(user.email, new_password).deliver_later
+      temporary_token = Digest::MD5.hexdigest("#{new_password}#{Time.now}#{rand}")
+      user.update_attributes(password: new_password, temporary_token: temporary_token)
+      PasswordRegeneration.send_new_password(user.email, new_password, temporary_token).deliver_later
       set_success_message :password_regenerations
     else
       set_error_message :password_regenerations, :email, :not_found

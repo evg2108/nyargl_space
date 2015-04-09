@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  include RecaptchaChecker
+
   def new
     authorize :session
   rescue Pundit::NotAuthorizedError
@@ -36,11 +38,16 @@ class SessionsController < ApplicationController
   private
 
   def try_autenticate
+    unless verify_recaptcha
+      set_error_message :authentication, :bad_recaptcha
+      return
+    end
+
     user = User.find_by_email(params[:user][:email])
     if user && user.authenticate(params[:user][:password])
       log_in user
     else
-      set_error_message :authentication
+      set_error_message :authentication, :bad_data
     end
   end
 end

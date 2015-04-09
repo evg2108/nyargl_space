@@ -4,7 +4,9 @@ ru:
       bad_format: неверный формат e-mail
   messages:
     error:
-      authentication: 'логин или пароль введены неверно'
+      authentication:
+        bad_data: 'логин или пароль введены неверно'
+        bad_recaptcha: 'Вам не удалось доказать, что вы не робот. Попробуйте ещё раз'
       profile:
         not_authorized: 'Авторизуйтесь, чтобы получить доступ к своему профилю'
       author:

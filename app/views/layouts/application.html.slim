@@ -10,6 +10,7 @@ html
     = stylesheet_link_tag    current_asset_name, media: 'all'
     = javascript_include_tag current_asset_name
     = csrf_meta_tags
+    = yield :end_of_head
   body
     .data_elements.hidden
       = render partial: 'shared/data_elements'

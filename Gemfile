@@ -40,6 +40,8 @@ gem 'keepass-password-generator'
 
 gem 'simple_form'
 
+gem 'nyargl_recaptcha'
+
 group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'

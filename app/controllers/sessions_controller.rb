@@ -1,6 +1,4 @@
 class SessionsController < ApplicationController
-  include RecaptchaChecker
-
   def new
     authorize :session
   rescue Pundit::NotAuthorizedError

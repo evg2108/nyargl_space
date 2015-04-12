@@ -1,7 +1,0 @@
-<%= javascript_tag do %>
-  var onloadCallback = function () {
-    grecaptcha.render(document.querySelector('<%= selector %>'), {
-      sitekey: '<%= sitekey %>'
-    });
-  };
-<%- end %>

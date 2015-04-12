@@ -7,7 +7,6 @@ header.row
     h1 Вход на сайт
 article.row
   .col-sm-6.col-sm-offset-3.text-center
-    / TODO нужно использовать капчу чтобы предотвратить ddos атаку и запретить регистрироваться ботам
     = simple_form_for User.new, url: session_path do |f|
       = f.input :email
       = f.input :password

@@ -1,4 +1,6 @@
 - no_index
+- content_for :end_of_head do
+  = include_recaptcha_scripts
 
 header.row
   .col-sm-12.text-center
@@ -8,5 +10,6 @@ article.row
     = simple_form_for user do |f|
       = f.input :email
       = f.input :password
-      = f.button :submit, class: 'btn-block'
-      / TODO нужно использовать капчу чтобы предотвратить ddos атаку и запретить регистрироваться ботам
+      .form-group
+        .g-recaptcha
+      = f.button :submit

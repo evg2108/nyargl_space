@@ -1,11 +1,14 @@
 require 'keepass/password'
 
 class PasswordRegenerationsController < ApplicationController
-  before_filter { authorize :password_regeneration }
+  include RecaptchaValidator
 
   rescue_from Pundit::NotAuthorizedError do
     redirect_to change_password_profile_path(anchor: CONTENT_SECTION)
   end
+
+  before_filter { authorize :password_regeneration }
+  before_filter :validate_recaptcha, only: [:create]
 
   def create
     email = user_params[:email]

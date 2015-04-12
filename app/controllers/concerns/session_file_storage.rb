@@ -38,7 +38,7 @@
 #   end
 #
 module SessionFileStorage
-  include ActiveSupport::Concern
+  extend ActiveSupport::Concern
 
   private
 

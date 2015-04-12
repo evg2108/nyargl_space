@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   include SessionFileStorage
+  include RecaptchaValidator
 
   before_filter :authorize_for_registration, only: [:new, :create]
+  before_filter :validate_recaptcha, only: [:create]
 
   expose(:user) do
     if params[:id]
@@ -21,7 +23,7 @@ class UsersController < ApplicationController
 
   def create
     if user.save
-      redirect_to root_path
+      redirect_to root_path(anchor: CONTENT_SECTION)
     else
       save_to_session_file_storage(user, :email, :password)
       redirect_to new_user_path(anchor: CONTENT_SECTION)

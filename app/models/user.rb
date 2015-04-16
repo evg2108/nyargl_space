@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   validates :email, presence: true, uniqueness: true, email: true
-  validates :password, presence: true
+  validates :password_digest, presence: true
 
   before_save :fix_empty_role
 

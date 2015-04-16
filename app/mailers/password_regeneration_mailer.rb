@@ -1,6 +1,4 @@
-class PasswordRegeneration < ApplicationMailer
-  default from: 'notifications@nyargl_space.org'
-
+class PasswordRegenerationMailer < ApplicationMailer
   attr_accessor :password, :temporary_token, :email
   helper_method :password, :temporary_token, :email
 

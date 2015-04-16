@@ -22,7 +22,10 @@ class UsersController < ApplicationController
   end
 
   def create
+    temporary_token = Digest::MD5.hexdigest("#{user.email}#{Time.now}#{rand}")
+    user.temporary_token = temporary_token
     if user.save
+      RegistrationMailer.send_email_confirmation(user.email, user.password, user.temporary_token).deliver_later
       redirect_to root_path(anchor: CONTENT_SECTION)
     else
       save_to_session_file_storage(user, :email, :password)

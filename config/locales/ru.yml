@@ -32,3 +32,5 @@ ru:
   mailers:
     password_regeneration:
       subject: Ваш новый пароль от NyarglSpace
+    registration:
+      subject: Вы зарегистрировались на NyarglSpace

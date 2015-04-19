@@ -31,7 +31,7 @@ gem 'bcrypt'
 
 gem 'slim-rails'
 gem 'decent_exposure'
-gem 'will_paginate-bootstrap'
+gem 'kaminari'
 gem 'russian'
 gem 'draper'
 gem 'pundit'

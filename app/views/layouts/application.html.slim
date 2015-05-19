@@ -9,6 +9,8 @@ html
       meta name="robots" content="noindex"/
     = stylesheet_link_tag    current_asset_name, media: 'all'
     = javascript_include_tag current_asset_name
+    /[if lt IE 9]
+      = javascript_include_tag 'shared/hacks/html5_and_responsive.js'
     = csrf_meta_tags
     = yield :end_of_head
   body

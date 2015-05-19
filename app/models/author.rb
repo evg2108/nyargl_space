@@ -3,6 +3,8 @@ class Author < ActiveRecord::Base
 
   friendly_id :full_name, use: [:slugged, :finders]
 
+  mount_uploader :avatar, AuthorAvatarUploader
+
   belongs_to :user
 
   validates :first_name, presence: true

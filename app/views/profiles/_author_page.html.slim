@@ -1,10 +1,6 @@
 #author_page.profile_page.col-xs-12
-  = simple_form_for current_author, url: author_path(current_author.id) do |f|
-    = f.input :enabled, as: :toggle_button, tooltip_placement: 'right'
+  = render partial: 'profiles/author_page/forms/activate_author_page', object: current_author, as: :author
   hr
-  = simple_form_for current_author, url: author_path(current_author.id) do |f|
-    = f.input :last_name
-    = f.input :first_name
-    = f.input :patronymic
-    = f.input :about_author, input_html: { rows: 5 }
-    = f.button :submit
+  = render partial: 'profiles/author_page/forms/change_avatar', object: current_author, as: :author
+  hr
+  = render partial: 'profiles/author_page/forms/change_info', object: current_author, as: :author

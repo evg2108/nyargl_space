@@ -1,0 +1,15 @@
+@import "layouts/application";
+@import "shared/application/profile";
+@import "jquery.jcrop";
+@import "jcrop_fix";
+@import "shared/custom_components/file_input";
+
+input.toggle_button {
+  width: 200px;
+}
+
+.previewbox_wrapper {
+  border: #ccc 1px solid;
+  box-shadow: #999 3px 3px;
+  border-radius: 3px;
+}

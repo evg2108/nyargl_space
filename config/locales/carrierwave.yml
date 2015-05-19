@@ -1,0 +1,7 @@
+errors:
+  messages:
+    carrierwave_processing_error: "Не удаётся изменить размер изображения"
+    carrierwave_integrity_error: "Не изображение"
+    carrierwave_download_error: "Не удаётся загрузить изображение"
+    extension_white_list_error: "Запрещено загружать файлы типа '%{extension}', разрешённые типы: %{allowed_types}"
+    extension_black_list_error: "Запрещено загружать файлы типа '%{extension}', запрещённые типы: %{prohibited_types}"

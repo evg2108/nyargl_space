@@ -1,0 +1,6 @@
+= simple_form_for author, url: author_path(author.id) do |f|
+  .panel.panel-default
+    .panel-heading
+      strong Активность вашей страницы
+    .list_item.panel-body
+      = f.input :enabled, as: :toggle_button, tooltip_placement: 'right'

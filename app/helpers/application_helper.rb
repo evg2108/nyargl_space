@@ -20,10 +20,10 @@ module ApplicationHelper
     @_placeholder_files[model_name][thumb][model.id.modulo(@_placeholder_files_count[model_name][thumb])]
   end
 
-  def present(object)
+  def present(object, options = {}, &block)
     presenter_name = object.is_a?(Symbol) || object.is_a?(String) ? object.to_s.classify : object.class.name
-    presenter = "#{presenter_name}Presenter".constantize.new(object, self)
-    block_given? ? yield(presenter) : presenter
+    presenter = "#{presenter_name}Presenter".constantize.new(object, self, options, &block)
+    block_given? ? presenter.render : presenter
   end
 
   def no_index

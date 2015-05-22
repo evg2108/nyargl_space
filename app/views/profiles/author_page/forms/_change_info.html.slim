@@ -1,10 +1,7 @@
 = simple_form_for author, url: author_path(author.id) do |f|
-  .panel.panel-default
-    .panel-heading
-      strong Информация на вашей странице
-    .list_item.panel-body
-      = f.input :last_name
-      = f.input :first_name
-      = f.input :patronymic
-      = f.input :about_author, input_html: { rows: 5 }
-      = f.button :submit
+  = present(:panel, title: 'Информация на вашей странице') do
+    = f.input :last_name
+    = f.input :first_name
+    = f.input :patronymic
+    = f.input :about_author, input_html: { rows: 5 }
+    = f.button :submit

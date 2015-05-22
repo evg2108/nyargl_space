@@ -1,19 +1,16 @@
 = simple_form_for author, url: author_path(author.id) do |f|
-  .panel.panel-default
-    .panel-heading
-      strong Ваш авторский аватар
-    .list_item.panel-body
-      .content.media
-        .media-left
-          = image_tag image_path_or_placeholder(f.object, :avatar), class: 'thumb media-object'
-        .media-body
-          span.about_author_text
-            label.uploadbutton
-              .btn.btn-success Загрузить из файла
-              = f.input :avatar, label: false, wrapper: false, input_html: { onchange: '$(this).prev().text($(this).val().replace(/.*[\/\\\\]/, ""));' }
-            = f.button :submit, style: 'display: none;', class: 'bad_browser_submit_btn'
-            noscript
-              = f.button :submit
+  = present(:panel, title: 'Ваш авторский аватар') do
+    .content.media
+      .media-left
+        = image_tag image_path_or_placeholder(f.object, :avatar), class: 'thumb media-object'
+      .media-body
+        span.about_author_text
+          label.uploadbutton
+            .btn.btn-success Загрузить из файла
+            = f.input :avatar, label: false, wrapper: false, input_html: { onchange: '$(this).prev().text($(this).val().replace(/.*[\/\\\\]/, ""));' }
+          = f.button :submit, style: 'display: none;', class: 'bad_browser_submit_btn'
+          noscript
+            = f.button :submit
   #cropper.modal.fade
     .modal-dialog
       .modal-content

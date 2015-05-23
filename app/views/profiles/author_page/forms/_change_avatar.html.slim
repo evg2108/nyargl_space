@@ -1,5 +1,5 @@
 = simple_form_for author, url: author_path(author.id) do |f|
-  = present(:panel, title: 'Ваш авторский аватар') do
+  = present(presenter: :panel, title: 'Ваш авторский аватар') do
     .content.media
       .media-left
         = image_tag image_path_or_placeholder(f.object, :avatar), class: 'thumb media-object'

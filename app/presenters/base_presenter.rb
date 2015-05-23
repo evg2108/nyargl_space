@@ -19,4 +19,12 @@ class BasePresenter
   def h
     @view_context
   end
+
+  def method_missing(symbol, *args)
+    if @object
+      @object.public_send(symbol, *args)
+    else
+      super
+    end
+  end
 end

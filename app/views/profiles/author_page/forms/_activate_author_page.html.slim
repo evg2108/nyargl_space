@@ -1,3 +1,3 @@
 = simple_form_for author, url: author_path(author.id) do |f|
-  = present(:panel, title: 'Активность вашей страницы') do |p|
+  = present(presenter: :panel, title: 'Активность вашей страницы') do |p|
     = f.input :enabled, as: :toggle_button, tooltip_placement: 'right'

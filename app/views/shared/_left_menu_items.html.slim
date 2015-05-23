@@ -2,5 +2,5 @@
   .col-xs-12
     .fix-indents
       .row
-        - left_menu_items.each do |left_menu_item|
-          = present(left_menu_item).to_link(class: %w(list-group-item-responsive col-md-12 col-xs-3))
+        = present(collection: left_menu_items).each do |left_menu_item|
+          = left_menu_item.to_link(class: %w(list-group-item-responsive col-md-12 col-xs-3))

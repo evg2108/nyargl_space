@@ -11,7 +11,7 @@ article.row
       = f.input :email
       = f.input :password
       .form-group
-        .g-recaptcha
+        = render partial: 'shared/recaptcha'
       .form-group
         = f.button :submit, value: t('.login')
         = link_to 'Забыли пароль?', password_regeneration_path(anchor: CONTENT_SECTION), class: 'btn btn-link', title: 'Забыл пароль? Жми сюда!', data: { toggle: 'tooltip', placement: 'auto' }, rel: 'nofollow'

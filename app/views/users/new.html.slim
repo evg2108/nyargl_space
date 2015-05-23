@@ -11,5 +11,5 @@ article.row
       = f.input :email
       = f.input :password
       .form-group
-        .g-recaptcha
+        = render partial: 'shared/recaptcha'
       = f.button :submit

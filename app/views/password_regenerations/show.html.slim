@@ -11,5 +11,5 @@ article.row
     = simple_form_for :user, url: password_regeneration_path do |f|
       = f.input :email
       .form-group
-        .g-recaptcha
+        = render partial: 'shared/recaptcha'
       = f.button :submit, value: t('.submit')

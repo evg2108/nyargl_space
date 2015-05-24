@@ -1,3 +1,7 @@
 = present(presenter: :panel, title: 'Ваши фотографии') do
   = simple_form_for author, url: author_path(author.id) do |f|
-    = f.input :avatar
+    = f.input :photos, as: :file, input_html: { multiple: true }
+    - if f.object.photos.any?
+      - f.object.photos.each do |photo|
+        = image_tag(photo.small_thumb.url)
+    = f.button :submit

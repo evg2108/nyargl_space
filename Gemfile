@@ -41,9 +41,9 @@ gem 'keepass-password-generator'
 
 gem 'simple_form'
 
-gem 'carrierwave'
+gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
-gem 'carrierwave-crop-on-fly'
+gem 'carrierwave-crop-on-fly'#, path: '/home/evg2108/Projects/carrierwave-crop-on-fly'
 
 gem 'nyargl_recaptcha'
 

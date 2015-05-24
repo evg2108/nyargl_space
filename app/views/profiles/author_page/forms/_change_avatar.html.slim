@@ -1,5 +1,5 @@
-= simple_form_for author, url: author_path(author.id) do |f|
-  = present(presenter: :panel, title: 'Ваш авторский аватар') do
+= present(presenter: :panel, title: 'Ваш авторский аватар') do
+  = simple_form_for author, url: author_path(author.id) do |f|
     .content.media
       .media-left
         = image_tag image_path_or_placeholder(f.object, :avatar), class: 'thumb media-object'
@@ -11,17 +11,17 @@
           = f.button :submit, style: 'display: none;', class: 'bad_browser_submit_btn'
           noscript
             = f.button :submit
-  #cropper.modal.fade
-    .modal-dialog
-      .modal-content
-        .modal-header
-          button.close aria-label="Закрыть" data-dismiss="modal" type="button"
-            span aria-hidden=true ×
-          h4.modal-title Укажите область обрезки картинки
-        .modal-body
-          = f.previewbox :avatar
-          br
-          = f.cropbox :avatar, height: 300, width: 300
-        .modal-footer
-          button.btn.btn-default data-dismiss="modal" type="button" Отмена
-          = f.button :submit
+    #cropper.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close aria-label="Закрыть" data-dismiss="modal" type="button"
+              span aria-hidden=true ×
+            h4.modal-title Укажите область обрезки картинки
+          .modal-body
+            = f.previewbox :avatar
+            br
+            = f.cropbox :avatar, height: 300, width: 300
+          .modal-footer
+            button.btn.btn-default data-dismiss="modal" type="button" Отмена
+            = f.button :submit

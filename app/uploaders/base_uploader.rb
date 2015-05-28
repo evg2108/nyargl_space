@@ -61,7 +61,7 @@ class BaseUploader < CarrierWave::Uploader::Base
                       when 'image/pjpeg'
                         'jpg'
                       when 'image/x-png'
-                        'phg'
+                        'png'
                       else
                         Rack::Mime::MIME_TYPES.invert[target_file.content_type][1..-1]
                     end

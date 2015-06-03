@@ -3,6 +3,7 @@
 //= require shared/application/noty_error_callback.js
 //= require jcrop.js
 //= require shared/hacks/detect_ie_version.js
+//= require shared/custom/dropzone
 //= require_self
 
 function _error_callback(xhr) {
@@ -22,4 +23,6 @@ $(document).ready(function() {
     } else {
         $('.bad_browser_submit_btn').show();
     }
+
+    document.dropzone.init('author_photos_upload_form_dropzone', { paramName: 'author[photos]', uploadMultiple: true, parallelUploads: 5 });
 });

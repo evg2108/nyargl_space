@@ -38,10 +38,14 @@ module SimpleResourceLoader
 
   private
 
+  def get_id
+    params[:id]
+  end
+
   # TODO need to write a test
   def single_resource
-    if params[:id]
-      result = self.class.resource_class.find(params[:id])
+    if get_id
+      result = self.class.resource_class.find(get_id)
       result.assign_attributes(safe_params) if %w(PUT PATCH).include?(request.request_method)
       self.class.decorator_class ? result.decorate : result
     else

@@ -5,14 +5,22 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy] do
     get 'once_login', on: :collection, as: :once_login
   end
-  resources :users, only: [:new, :create, :update]
+
+  resources :users, only: [:new, :create]
+
+  resource :user, only: [:update], as: :current_user
+
   resource :password_regeneration, only: [:show, :create]
   resource :profile, only: [] do
     get 'author_page', as: :author_page
     get 'change_password', as: :change_password
   end
 
-  resources :authors, only: [:index, :show, :update]
+  resources :authors, only: [:index, :show]
+
+  resource :author, only: [:update], as: :current_author do
+    resources :photos, controller: :author_photos, only: [:create, :destroy]
+  end
 
   resources :articles, only: [:index, :show]
   resources :blogs, only: [:index, :show]

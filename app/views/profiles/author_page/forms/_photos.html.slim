@@ -1,7 +1,19 @@
-= present(presenter: :panel, title: 'Ваши фотографии') do
-  = simple_form_for author, url: author_path(author.id) do |f|
-    = f.input :photos, as: :file, input_html: { multiple: true }
-    - if f.object.photos.any?
-      - f.object.photos.each do |photo|
-        = image_tag(photo.small_thumb.url)
-    = f.button :submit
+= present(presenter: :panel, title: 'Ваши фотографии', id: AuthorPhotosController::AUTHOR_PHOTOS_PANEL_ID) do
+  - if author.photos.any?
+    .row
+      .col-sm-12
+        .previews
+          .row
+            - author.photos.each do |photo|
+              .col-xs-5.col-sm-3.col-md-4.col-lg-3
+                = form_tag current_author_photo_path(photo.file.basename), method: :delete, class: 'author_photo_remove_form' do
+                  = image_tag photo.small_thumb.url
+                  .form-group.text-center
+                    = button_tag 'удалить', class: 'btn btn-link'
+  .row
+    .col-sm-12
+      noscript
+        = simple_form_for author, url: current_author_photos_path, method: 'post', html: { id: 'author_photos_upload_form_noscript'} do |f|
+          = f.input :photos, as: :file, label: false, input_html: {multiple: true}
+          = f.button :submit
+      = form_tag(current_author_photos_path, class: 'dropzone', id: 'author_photos_upload_form_dropzone') { }

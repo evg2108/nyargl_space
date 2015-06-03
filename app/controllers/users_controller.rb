@@ -6,8 +6,8 @@ class UsersController < ApplicationController
   before_filter :validate_recaptcha, only: [:create]
 
   expose(:user) do
-    if params[:id]
-      result = User.find(params[:id])
+    if get_id
+      result = User.find(get_id)
       if (parameters = user_params)
         result.attributes = parameters
       end
@@ -69,5 +69,13 @@ class UsersController < ApplicationController
     authorize :registration
   rescue Pundit::NotAuthorizedError
     redirect_to author_page_profile_path(anchor: CONTENT_SECTION), status: 303
+  end
+
+  def get_id
+    if action_name == 'update'
+      current_user.id
+    else
+      params[:id]
+    end
   end
 end

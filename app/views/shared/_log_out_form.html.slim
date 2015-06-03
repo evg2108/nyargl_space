@@ -7,4 +7,4 @@
     = " #{t('.log_out')}"
 .pull-right
   = link_to 'Обо мне', author_path(current_author.has_slug? ? current_author : current_author.id, anchor: CONTENT_SECTION), class: 'btn btn-link navbar-btn', data: { toggle: 'tooltip', placement: 'bottom' }, title: 'Перейти к авторской страничке'
-  = link_to current_user.email, author_page_profile_path(anchor: CONTENT_SECTION), class: 'btn btn-link navbar-btn', data: {toggle: 'tooltip', placement: 'bottom'}, title: 'Перейти в профиль'
+  = link_to 'Профиль', author_page_profile_path(anchor: CONTENT_SECTION), class: 'btn btn-link navbar-btn', data: {toggle: 'tooltip', placement: 'bottom'}, title: 'Перейти в профиль'

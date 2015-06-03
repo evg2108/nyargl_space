@@ -1,5 +1,5 @@
 = present(presenter: :panel, title: 'Информация на вашей странице') do
-  = simple_form_for author, url: author_path(author.id) do |f|
+  = simple_form_for author, url: current_author_path, html: { id: 'change_author_info_form' } do |f|
     = f.input :last_name
     = f.input :first_name
     = f.input :patronymic

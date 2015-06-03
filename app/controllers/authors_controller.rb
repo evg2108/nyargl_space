@@ -34,7 +34,7 @@ class AuthorsController < ApplicationController
   private
 
   def author_params
-    params.require(:author).permit(:first_name, :last_name, :patronymic, :about_author, :enabled, :avatar, photos: [])
+    params.require(:author).permit(:first_name, :last_name, :patronymic, :about_author, :enabled, :avatar)
   end
 
   def authorization
@@ -57,5 +57,13 @@ class AuthorsController < ApplicationController
   def authorization_error_show
     set_error_message :author, :show, :not_active
     redirect_to author_page_profile_path, status: 303
+  end
+
+  def get_id
+    if action_name == 'update'
+      current_author.id
+    else
+      params[:id]
+    end
   end
 end

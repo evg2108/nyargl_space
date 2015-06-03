@@ -23,6 +23,7 @@ ru:
         last_name: Фамилия
         patronymic: Отчество
         about_author: О себе
+        photos: Фотографии
     toggle_buttons:
       author:
         enabled:

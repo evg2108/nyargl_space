@@ -1,11 +1,15 @@
+= javascript_include_tag 'http://ricostacruz.com/jquery.transit/jquery.transit.min.js'
 article.row
   .col-sm-12
     .responsible-image-and-text
-      .image
-        img.thumbnail src='/uploads/test.jpg'
+      .media-container.img-thumbnail
+        .images
+          - author.photos.each_with_index do |photo, index|
+            .image class=('show' if index == 0)
+              img src=photo.medium_image.url
       .text
         h1.header
           = author.full_name
         span.about_author
           = author.about_author_formatted
-
+hr

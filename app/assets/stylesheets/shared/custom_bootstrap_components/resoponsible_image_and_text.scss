@@ -2,35 +2,89 @@
 
   @extend .clearfix;
 
-  .image {
+  padding: 20px;
+
+  .media-container {
     @extend .pull-left;
 
+    position: relative;
+
+    width: 100%;
+    margin-bottom: 20px;
+
     @media (min-width: $screen-xs-min) {
-      width: percentage(1.0);
+      max-width: inherit;
       margin-left: 0;
       margin-right: 0;
     }
     @media (min-width: $screen-sm-min) {
       margin-left: 0;
       margin-right: 20px;
-      width: auto;
+      max-width: 482px;
+      margin-bottom: 0;
     }
     @media (min-width: $screen-md-min) {
-      width: percentage(8.0 / 12.0);
-      margin-left: percentage(2.0 / 12.0);
-      margin-right: percentage(2.0 / 12.0);
+      max-width: percentage(10.0 / 16.0);
+      margin-left: percentage(3.0 / 16.0);
+      margin-right: percentage(3.0 / 16.0);
+      margin-bottom: 20px;
     }
     @media (min-width: $screen-lg-min) {
       margin-left: 0;
       margin-right: 20px;
-      width: auto;
+      max-width: 482px;
+      margin-bottom: 0;
     }
 
-    img {
-      max-width: 482px;
+    .image {
       width: 100%;
-      height: auto;
-      margin-top: 20px;
+      padding-bottom: 62.5%;
+      position: relative;
+      display: none;
+
+      img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    .controls {
+      position: absolute;
+      height: 32px;
+      top: 50%;
+      width: 100%;
+      margin-top: -16px;
+
+      a {
+        position: absolute;
+        width: 32px;
+        height: 32px;
+      }
+
+      .prev_arrow {
+        left: 6px;
+        background: url('/images/controls.png') no-repeat 0 -32px;
+
+        &:hover {
+          background: url('/images/controls.png') no-repeat 0 0;
+        }
+      }
+
+      .next_arrow {
+        right: 14px;
+        background: url('/images/controls.png') no-repeat -43px -32px;
+
+        &:hover {
+          background: url('/images/controls.png') no-repeat -43px 0;
+        }
+      }
     }
   }
 

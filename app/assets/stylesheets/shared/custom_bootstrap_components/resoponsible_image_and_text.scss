@@ -36,22 +36,11 @@
       margin-bottom: 0;
     }
 
-    /* Not so important */
     .images {
-      //width: 600px;
-      //padding: 20px 0 0 20px;
-      //background: white;
-      //margin: 20px auto;
       max-height: 300px;
-      //overflow: hidden;
 
       .image {
-        //margin: 0 20px 20px 0;
-        //float: left;
-        //box-shadow: 0 0 1px black;
         display: none;
-
-        /** Interesting part starts here **/
 
         font-size: 0;
         text-align: center;
@@ -90,19 +79,19 @@
 
       .prev_arrow {
         left: 6px;
-        background: url('/images/controls.png') no-repeat 0 -32px;
+        background: image-url('controls.png') no-repeat 0 -32px;
 
         &:hover {
-          background: url('/images/controls.png') no-repeat 0 0;
+          background: image-url('controls.png') no-repeat 0 0;
         }
       }
 
       .next_arrow {
         right: 14px;
-        background: url('/images/controls.png') no-repeat -43px -32px;
+        background: image-url('controls.png') no-repeat -43px -32px;
 
         &:hover {
-          background: url('/images/controls.png') no-repeat -43px 0;
+          background: image-url('controls.png') no-repeat -43px 0;
         }
       }
     }

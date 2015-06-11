@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   include Roles
 
   has_one :author, dependent: :destroy
+  has_many :products, dependent: :nullify
 
   has_secure_password
 

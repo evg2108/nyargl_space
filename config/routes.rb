@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resource :password_regeneration, only: [:show, :create]
   resource :profile, only: [] do
     get 'author_page', as: :author_page
+    get 'products', as: :products
     get 'change_password', as: :change_password
   end
 
@@ -22,7 +23,10 @@ Rails.application.routes.draw do
     resources :photos, controller: :author_photos, only: [:create, :destroy]
   end
 
-  resources :articles, only: [:index, :show]
+  resources :products, only: [:index, :show]
+
+  resources :products, only: [:new, :create, :edit, :update, :destroy], path: '/profile/products', as: :controlled_product
+
   resources :blogs, only: [:index, :show]
   resources :forums, only: [:index, :show]
 end

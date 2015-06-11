@@ -1,10 +1,11 @@
 class ProfilesController < ApplicationController
   before_filter { authorize :profile, :show? }
-  before_filter(only: [:author_page, :change_password]) { render 'profiles/show' }
+  before_filter(only: [:author_page, :change_password, :products]) { render 'profiles/show' }
 
   expose(:profile_tabs){
     [
         MenuItem.new('profile.author_page', :profiles, :author_page),
+        MenuItem.new('profile.products', :profiles, :products),
         MenuItem.new('profile.change_password', :profiles, :change_password)
     ]
   }
@@ -15,5 +16,6 @@ class ProfilesController < ApplicationController
   end
 
   def author_page; end
+  def products; end
   def change_password; end
 end

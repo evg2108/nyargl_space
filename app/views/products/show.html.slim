@@ -1,15 +1,14 @@
 article.row
   .col-sm-12
     .responsible-image-and-text
-      - if author.photos.any?
+      - if product.pictures.any?
         .media-container.img-thumbnail
           .images
-            - author.photos.each_with_index do |photo, index|
+            - product.pictures.each_with_index do |picture, index|
               .image class=('show' if index == 0)
-                img src=photo.medium_image.url
+                img src=picture.medium_image.url
       .text
         h1.header
-          = author.full_name
+          = product.title
         span.about_author
-          = author.about_author_formatted
-hr
+          = product.description

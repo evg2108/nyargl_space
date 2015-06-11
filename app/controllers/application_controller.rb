@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   expose(:menu_items){
     [
         MenuItem.new(:authors, :authors, :index),
-        MenuItem.new(:articles, :articles, :index),
+        MenuItem.new(:products, :products, :index),
         MenuItem.new(:blogs, :blogs, :index),
         MenuItem.new(:forums, :forums, :index),
     ]

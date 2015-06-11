@@ -1,0 +1,24 @@
+.profile_page.col-xs-12
+  = present(presenter: :panel, title: 'Список ваших произведений')
+    .row
+      .col-sm-12
+        table.table.table-striped.table-hover.table-condensed.table-responsive
+          thead
+            tr
+              th
+              th style="width: 50px"
+              th style="width: 50px"
+                .pull-right
+                  = link_to new_controlled_product_path
+                    .span.glyphicon.glyphicon-plus
+          tbody
+            - current_user.products.each do |product|
+              tr
+                td
+                  = product.title
+                td
+                  = link_to edit_controlled_product_path(product)
+                    .span.glyphicon.glyphicon-pencil
+                td
+                  = link_to controlled_product_path(product), method: :delete
+                    .span.glyphicon.glyphicon-trash

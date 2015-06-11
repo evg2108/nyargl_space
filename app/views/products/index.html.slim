@@ -1,0 +1,8 @@
+- set_page_title 'Произведения'
+
+section.row
+  = render partial: 'products/product_ticket', collection: products
+
+footer.row
+  .col-sm-12
+    = paginate products

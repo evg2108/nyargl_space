@@ -1,0 +1,16 @@
+header.row
+  .col-sm-8.col-sm-offset-2
+    h1.text-center= 'Настройки профиля'
+
+article.row
+  .col-sm-8.col-sm-offset-2
+    .profile_navigation
+      = render partial: 'profiles/navigation', object: profile_tabs
+
+      .row
+        .profile_page.col-xs-12
+          = present(presenter: :panel, title: 'Добавление произведения')
+            = simple_form_for :product, url: controlled_product_index_path do |f|
+              = f.input :title, label: 'Заголовок'
+              = f.input :description, label: 'Описание', as: :text
+              = f.button :submit, value: 'Сохранить'

@@ -23,11 +23,12 @@ ru:
   model:
     menu_item:
       authors: Авторы
-      articles: Произведения
+      products: Произведения
       blogs: Блоги
       forums: Форум
       profile:
         author_page: 'Ваша страница'
+        products: 'Ваши произведения'
         change_password: 'Смена пароля'
   mailers:
     password_regeneration:

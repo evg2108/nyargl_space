@@ -18,7 +18,7 @@ class PasswordRegenerationsController < ApplicationController
       new_password = KeePass::Password.generate('A{6}s{3}')
       temporary_token = Digest::MD5.hexdigest("#{new_password}#{Time.now}#{rand}")
       user.update_attributes(password: new_password, temporary_token: temporary_token)
-      PasswordRegeneration.send_new_password(user.email, new_password, temporary_token).deliver_later
+      PasswordRegenerationMailer.send_new_password(user.email, new_password, temporary_token).deliver_later
       set_success_message :password_regenerations
     else
       set_error_message :password_regenerations, :email, :not_found

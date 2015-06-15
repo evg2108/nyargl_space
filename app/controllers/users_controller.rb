@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   def authorize_for_registration
     authorize :registration
   rescue Pundit::NotAuthorizedError
-    redirect_to author_page_profile_path(anchor: Anchors::CONTENT_SECTION), status: 303
+    redirect_to profile_author_path(anchor: Anchors::CONTENT_SECTION), status: 303
   end
 
   def get_id

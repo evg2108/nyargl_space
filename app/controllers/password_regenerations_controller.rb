@@ -4,7 +4,7 @@ class PasswordRegenerationsController < ApplicationController
   include RecaptchaValidator
 
   rescue_from Pundit::NotAuthorizedError do
-    redirect_to change_password_profile_path(anchor: Anchors::CONTENT_SECTION)
+    redirect_to edit_profile_password_path(anchor: Anchors::CONTENT_SECTION)
   end
 
   before_filter { authorize :password_regeneration }

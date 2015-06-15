@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20150607092930) do
   create_table "products", force: :cascade do |t|
     t.string   "slug"
     t.string   "title",                                                    null: false
-    t.string   "description"
+    t.text     "description"
     t.integer  "age_restriction",                          default: 18,    null: false
     t.decimal  "price",           precision: 15, scale: 2, default: 0.0,   null: false
     t.boolean  "free",                                     default: false, null: false

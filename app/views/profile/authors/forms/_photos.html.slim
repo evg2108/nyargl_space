@@ -1,4 +1,4 @@
-= present(presenter: :panel, title: 'Ваши фотографии', id: Profile::AuthorPhotosController::AUTHOR_PHOTOS_PANEL_ID) do
+= present(presenter: :panel, title: 'Ваши фотографии', id: Anchors::Profile::AUTHOR_PHOTOS) do
   - if author.photos.any?
     .row
       .col-sm-12
@@ -7,7 +7,7 @@
             - author.photos.each do |photo|
               .col-xs-5.col-sm-3.col-md-4.col-lg-3
                 = form_tag profile_author_photo_path(photo.file.basename), method: :delete, class: 'author_photo_remove_form' do
-                  = hidden_field_tag :anchor, Profile::AuthorPhotosController::AUTHOR_PHOTOS_PANEL_ID
+                  = hidden_field_tag :anchor, Anchors::Profile::AUTHOR_PHOTOS
                   = image_tag photo.small_thumb.url
                   .form-group.text-center
                     = button_tag 'удалить', class: 'btn btn-link'
@@ -15,7 +15,7 @@
     .col-sm-12
       noscript
         = simple_form_for author, url: profile_author_photos_path, method: 'post', html: { id: 'author_photos_upload_form_noscript'} do |f|
-          = hidden_field_tag :anchor, Profile::AuthorPhotosController::AUTHOR_PHOTOS_PANEL_ID
+          = hidden_field_tag :anchor, Anchors::Profile::AUTHOR_PHOTOS
           = f.input :photos, as: :file, label: false, input_html: {multiple: true}
           = f.button :submit
       = form_tag(profile_author_photos_path, class: 'dropzone', id: 'author_photos_upload_form_dropzone') { }

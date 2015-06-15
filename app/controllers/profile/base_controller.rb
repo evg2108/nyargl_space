@@ -19,7 +19,7 @@ module Profile
     private
 
     def anchor
-      params[:anchor] || CONTENT_SECTION
+      params[:anchor] || Anchors::CONTENT_SECTION
     end
 
     def define_page_title

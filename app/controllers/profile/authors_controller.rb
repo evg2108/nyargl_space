@@ -1,9 +1,6 @@
 module Profile
   class AuthorsController < Profile::BaseController
     #TODO перенести сюда функционал изменения автора
-    ACTIVATE_AUTHOR_PAGE_ID = 'activate_author_page'
-    CHANGE_AUTHOR_AVATAR_ID = 'change_author_avatar'
-    CHANGE_AUTHOR_INFO_ID = 'change_author_info'
 
     expose(:author) do
       current_author.attributes = author_params if current_author && action_name == 'update'

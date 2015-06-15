@@ -3,6 +3,7 @@ module Profile
     include Pundit
 
     expose(:product, attributes: :product_params)
+    expose(:products) { current_user.products }
 
     def create
       product.user = current_user

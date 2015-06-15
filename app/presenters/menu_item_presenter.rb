@@ -16,6 +16,6 @@ class MenuItemPresenter < BasePresenter
   end
 
   def link
-    h.url_for(object.page_identifier.merge(anchor: CONTENT_SECTION))
+    h.url_for(object.page_identifier.merge(anchor: Anchors::CONTENT_SECTION))
   end
 end

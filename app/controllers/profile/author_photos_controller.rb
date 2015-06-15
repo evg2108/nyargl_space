@@ -4,7 +4,6 @@
 ## или при удалении существующих. Это мешает использовать приемущества AJAX. Задал вопрос в issues CarrierWave на github
 module Profile
   class AuthorPhotosController < Profile::BaseController
-    AUTHOR_PHOTOS_PANEL_ID = 'author_photos'
 
     def create
       photos = current_author.photos_identifiers
@@ -14,7 +13,7 @@ module Profile
       respond_to do |f|
         f.html do
           result ? set_success_message(:author, :photos, :upload) : set_error_message(:author, :photos, :upload)
-          redirect_to profile_author_path(anchor: AUTHOR_PHOTOS_PANEL_ID)
+          redirect_to profile_author_path(anchor: Anchors::Profile::AUTHOR_PHOTOS)
         end
 
         f.json do
@@ -40,7 +39,7 @@ module Profile
       respond_to do |f|
         f.html do
           result ? set_success_message(:author, :photos, :remove) : set_error_message(:author, :photos, :remove)
-          redirect_to profile_author_path(anchor: AUTHOR_PHOTOS_PANEL_ID)
+          redirect_to profile_author_path(anchor: Anchors::Profile::AUTHOR_PHOTOS)
         end
 
         f.json do

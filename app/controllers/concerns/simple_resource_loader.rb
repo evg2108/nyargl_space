@@ -46,7 +46,7 @@ module SimpleResourceLoader
   def single_resource
     if get_id
       result = self.class.resource_class.find(get_id)
-      result.assign_attributes(safe_params) if %w(PUT PATCH).include?(request.request_method)
+      result.assign_attributes(safe_params) if request.put? || request.patch?
       self.class.decorator_class ? result.decorate : result
     else
       # if try(:in_session_file_storage?) && (validated_model = try(:read_from_session_file_storage, self.class.resource_class))

@@ -15,7 +15,7 @@ module Profile
           else
             set_error_message :user, :empty_password
           end
-          redirect_to edit_profile_password_path(anchor: CONTENT_SECTION)
+          redirect_to edit_profile_password_path(anchor: Anchors::CONTENT_SECTION)
         end
 
         format.json do

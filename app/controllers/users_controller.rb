@@ -22,10 +22,10 @@ class UsersController < ApplicationController
     user.temporary_token = temporary_token
     if user.save
       RegistrationMailer.send_email_confirmation(user.email, user.password, user.temporary_token).deliver_later
-      redirect_to root_path(anchor: CONTENT_SECTION)
+      redirect_to root_path(anchor: Anchors::CONTENT_SECTION)
     else
       save_to_session_file_storage(user, :email, :password)
-      redirect_to new_user_path(anchor: CONTENT_SECTION)
+      redirect_to new_user_path(anchor: Anchors::CONTENT_SECTION)
     end
   end
 
@@ -38,6 +38,10 @@ class UsersController < ApplicationController
   def authorize_for_registration
     authorize :registration
   rescue Pundit::NotAuthorizedError
-    redirect_to author_page_profile_path(anchor: CONTENT_SECTION), status: 303
+    redirect_to author_page_profile_path(anchor: Anchors::CONTENT_SECTION), status: 303
+  end
+
+  def get_id
+    params[:id]
   end
 end

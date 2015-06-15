@@ -4,10 +4,10 @@ article.author.col-sm-6
     .list_item.panel-body
       .content.media
         .media-left
-          = link_to product_path(product_ticket, anchor: CONTENT_SECTION) do
+          = link_to product_path(product_ticket, anchor: Anchors::CONTENT_SECTION) do
             = image_tag product_ticket.pictures.first.try(:small_thumb).try(:url) || '', class: 'thumb media-object'
         .media-body
           h4.media-heading
-            = link_to product_ticket.title, product_path(product_ticket, anchor: CONTENT_SECTION)
+            = link_to product_ticket.title, product_path(product_ticket, anchor: Anchors::CONTENT_SECTION)
           span.about_author_text
             = product_ticket.lead

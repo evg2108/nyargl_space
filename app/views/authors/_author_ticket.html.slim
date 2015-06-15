@@ -4,10 +4,10 @@ article.author.col-sm-6
     .list_item.panel-body
       .content.media
         .media-left
-          = link_to author_path(author_ticket, anchor: CONTENT_SECTION) do
+          = link_to author_path(author_ticket, anchor: Anchors::CONTENT_SECTION) do
             = image_tag image_path_or_placeholder(author_ticket, :avatar), class: 'thumb media-object'
         .media-body
           h4.media-heading
-            = link_to author_ticket.full_name, author_path(author_ticket, anchor: CONTENT_SECTION)
+            = link_to author_ticket.full_name, author_path(author_ticket, anchor: Anchors::CONTENT_SECTION)
           span.about_author_text
             = author_ticket.in_few_words

@@ -8,6 +8,6 @@ class MenuItem
   end
 
   def page_identifier
-    { controller: controller_name, action: action_name }
+    { controller: "/#{controller_name}", action: action_name }
   end
 end

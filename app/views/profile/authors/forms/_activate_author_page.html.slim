@@ -1,0 +1,4 @@
+= present(presenter: :panel, title: 'Активность вашей страницы', id: Profile::AuthorsController::ACTIVATE_AUTHOR_PAGE_ID) do
+  = simple_form_for author, url: profile_author_path, html: { id: 'activate_author_page_form' } do |f|
+    = hidden_field_tag :anchor, Profile::AuthorsController::ACTIVATE_AUTHOR_PAGE_ID
+    = f.input :enabled, as: :toggle_button, tooltip_placement: 'right'

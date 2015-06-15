@@ -17,9 +17,14 @@ html
         section.main_content.col-md-8.col-xs-12
           - if page_title_exist?
             header.row
-              .col-sm-12
-                h1= get_page_title
-          = yield
+              .col-sm-8.col-sm-offset-2
+                h1.text-center= get_page_title
+          article.row
+            .col-sm-8.col-sm-offset-2
+              .profile_navigation
+                = render partial: 'profile/shared/navigation', object: profile_tabs
+                .row
+                  = yield
         aside.right_side.col-md-2.col-xs-12
           = yield :right_side
     = render partial: 'shared/footer'

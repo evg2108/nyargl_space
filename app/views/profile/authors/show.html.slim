@@ -1,0 +1,8 @@
+#author_page.profile_page.col-xs-12
+  = render partial: 'profile/authors/forms/activate_author_page', object: current_author, as: :author
+  hr
+  = render partial: 'profile/authors/forms/change_avatar', object: current_author, as: :author
+  hr
+  = render partial: 'profile/authors/forms/photos', object: current_author, as: :author
+  hr
+  = render partial: 'profile/authors/forms/change_info', object: current_author, as: :author

@@ -1,5 +1,6 @@
-= present(presenter: :panel, title: 'Ваш авторский аватар') do
-  = simple_form_for author, url: current_author_path, html: { id: 'change_author_avatar_form' } do |f|
+= present(presenter: :panel, title: 'Ваш авторский аватар', id: Profile::AuthorsController::CHANGE_AUTHOR_AVATAR_ID) do
+  = simple_form_for author, url: profile_author_path, html: { id: 'change_author_avatar_form' } do |f|
+    = hidden_field_tag :anchor, Profile::AuthorsController::CHANGE_AUTHOR_AVATAR_ID
     .content.media
       .media-left
         = image_tag image_path_or_placeholder(f.object, :avatar), class: 'thumb media-object'

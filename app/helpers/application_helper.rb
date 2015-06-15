@@ -1,6 +1,6 @@
 module ApplicationHelper
   def current_asset_name
-    @current_asset_name ||= "application/#{controller_name}/#{action_name}"
+    @current_asset_name ||= "application/#{controller.class.name.underscore.sub('_controller', '')}/#{action_name}"
   end
 
   def image_path_or_placeholder(model, thumb)

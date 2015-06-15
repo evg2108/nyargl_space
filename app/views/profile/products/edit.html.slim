@@ -1,0 +1,6 @@
+.profile_page.col-xs-12
+  = present(presenter: :panel, title: %(Внесение изменений в "#{product.title}"))
+    = simple_form_for product, url: profile_product_path(product) do |f|
+      = f.input :title, label: 'Заголовок'
+      = f.input :description, label: 'Описание', as: :text
+      = f.button :submit, value: 'Сохранить'

@@ -1,0 +1,8 @@
+= present(presenter: :panel, title: 'Информация на вашей странице', id: Profile::AuthorsController::CHANGE_AUTHOR_INFO_ID) do
+  = simple_form_for author, url: profile_author_path, html: { id: 'change_author_info_form' } do |f|
+    = hidden_field_tag :anchor, Profile::AuthorsController::CHANGE_AUTHOR_INFO_ID
+    = f.input :last_name
+    = f.input :first_name
+    = f.input :patronymic
+    = f.input :about_author, input_html: { rows: 5 }
+    = f.button :submit

@@ -8,9 +8,10 @@ ru:
   sessions:
     new:
       login: 'Войти на сайт'
-  profiles:
-    change_password:
-      submit: 'Сменить пароль'
+  profile:
+    passwords:
+      edit:
+        submit: 'Сменить пароль'
   password_regenerations:
     show:
       submit: 'Выслать новый пароль'

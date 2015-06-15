@@ -1,0 +1,6 @@
+.profile_page.col-xs-12
+  = present(presenter: :panel, title: 'Добавление произведения')
+    = simple_form_for :product, url: profile_products_path do |f|
+      = f.input :title, label: 'Заголовок'
+      = f.input :description, label: 'Описание', as: :text
+      = f.button :submit, value: 'Сохранить'

@@ -7,11 +7,7 @@ class UsersController < ApplicationController
 
   expose(:user) do
     if get_id
-      result = User.find(get_id)
-      if (parameters = user_params)
-        result.attributes = parameters
-      end
-      result
+      User.find(get_id)
     elsif params[:user]
       User.new(user_params)
     elsif in_session_file_storage?(:user)
@@ -33,32 +29,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def update
-    authorize user
-    success = user.save
-
-    respond_to do |format|
-      format.html do
-        if success
-          set_success_message :user, :password_changed
-        else
-          set_error_message :user, :empty_password
-        end
-        redirect_to change_password_profile_path(anchor: CONTENT_SECTION)
-      end
-
-      format.json do
-        if success
-          render json: { message: success_message(:user, :password_changed) }
-        else
-          render json: { message: error_message(:user, :empty_password) }, status: :unprocessable_entity
-        end
-      end
-    end
-  rescue Pundit::NotAuthorizedError
-    redirect_to root_path(anchor: CONTENT_SECTION), status: 303
-  end
-
   private
 
   def user_params
@@ -69,13 +39,5 @@ class UsersController < ApplicationController
     authorize :registration
   rescue Pundit::NotAuthorizedError
     redirect_to author_page_profile_path(anchor: CONTENT_SECTION), status: 303
-  end
-
-  def get_id
-    if action_name == 'update'
-      current_user.id
-    else
-      params[:id]
-    end
   end
 end

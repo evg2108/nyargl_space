@@ -9,7 +9,7 @@
               th style="width: 50px"
               th style="width: 50px"
                 .pull-right
-                  = link_to new_controlled_product_path
+                  = link_to new_profile_product_path
                     .span.glyphicon.glyphicon-plus
           tbody
             - current_user.products.each do |product|
@@ -17,8 +17,8 @@
                 td
                   = product.title
                 td
-                  = link_to edit_controlled_product_path(product)
+                  = link_to edit_profile_product_path(product)
                     .span.glyphicon.glyphicon-pencil
                 td
-                  = link_to controlled_product_path(product), method: :delete
+                  = link_to profile_product_path(product), method: :delete
                     .span.glyphicon.glyphicon-trash

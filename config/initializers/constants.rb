@@ -9,4 +9,3 @@ module Anchors
     CHANGE_AUTHOR_INFO = 'change_author_info'
   end
 end
-Rails.application.config.image_placeholders_path = '/images/placeholders'

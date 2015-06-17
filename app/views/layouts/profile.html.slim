@@ -10,9 +10,6 @@ html
       = render partial: 'shared/header'
       section.row id=Anchors::CONTENT_SECTION
         aside.left_side.col-md-2.col-xs-12
-          .row.visible-lg-block.visible-md-block
-            .col-xs-12
-              .left_menu_placeholder
           = render partial: 'shared/left_menu_items', object: menu_items
         section.main_content.col-md-8.col-xs-12
           - if page_title_exist?

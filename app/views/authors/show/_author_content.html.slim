@@ -1,0 +1,14 @@
+article.row
+  .col-sm-12
+    .responsible-image-and-text
+      - if author_content.photos.any?
+        .media-container.img-thumbnail
+          .images
+            - author_content.photos.each_with_index do |photo, index|
+              .image class=('show' if index == 0)
+                img src=photo.medium_image.url
+      .text
+        h1.header
+          = author_content.full_name
+        span.about_author
+          = author_content.about_author_formatted

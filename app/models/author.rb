@@ -7,6 +7,7 @@ class Author < ActiveRecord::Base
   mount_uploaders :photos, AuthorPhotoUploader
 
   belongs_to :user
+  has_many :products, through: :user
 
   validates :first_name, presence: true
 

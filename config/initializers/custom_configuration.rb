@@ -1,1 +1,4 @@
-Rails.application.config.image_placeholders_path = '/images/placeholders'
+require 'image_placeholder'
+
+ImagePlaceholder.init(:author, :avatar)
+ImagePlaceholder.init(:product, :pictures, :small_thumb)

@@ -3,21 +3,20 @@ module ApplicationHelper
     @current_asset_name ||= "application/#{controller.class.name.underscore.sub('_controller', '')}/#{action_name}"
   end
 
-  def image_path_or_placeholder(model, thumb)
-    return model.avatar.url if model.avatar.url
-    model_name = model.class.model_name.plural
+  def image_path_or_placeholder(model, image_field_name, thumb = nil)
+    uploader = model.send(image_field_name)
 
-    @_placeholder_files_count ||= {}
-    @_placeholder_files_count[model_name] ||= {}
-    @_placeholder_files_count[model_name][thumb] ||= Dir[Rails.root + "public#{Rails.application.config.image_placeholders_path}/#{model_name}/#{thumb}/*.jpg"].length
+    uploader = uploader.first if uploader.is_a?(Array)
 
-    @_placeholder_files ||= {}
-    @_placeholder_files[model_name] ||= {}
-    unless @_placeholder_files[model_name][thumb]
-      @_placeholder_files[model_name][thumb] = (1..@_placeholder_files_count[model_name][thumb]).map { |index| "#{Rails.application.config.image_placeholders_path}/#{model_name}/#{thumb}/#{index}.jpg" }
+    if uploader
+      image = thumb ? uploader.send(thumb) : uploader
+
+      if (image_path = image.try(:url))
+        return image_path
+      end
     end
 
-    @_placeholder_files[model_name][thumb][model.id.modulo(@_placeholder_files_count[model_name][thumb])]
+    ImagePlaceholder.get_image_placeholder(model, image_field_name, thumb)
   end
 
   def no_index

@@ -1,2 +1,5 @@
 = render partial: 'authors/show/author_content', object: author
 hr
+article.row
+  .col-sm-12
+    = render partial: 'authors/show/product_ticket', collection: author.products.decorate

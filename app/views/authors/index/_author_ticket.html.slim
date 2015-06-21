@@ -12,9 +12,4 @@ article.author.list_item.col-sm-6
           p.lead-description.text-justify
             = author_ticket.in_few_words
     .panel-footer
-      .rating
-        .label.label-primary
-          span
-            .glyphicon.glyphicon-star style="color: gold"
-          span
-            | 53
+      = present(author_ticket, presenter: :rating).rating_label

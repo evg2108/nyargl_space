@@ -9,7 +9,7 @@ module Profile
     expose(:profile_tabs){
       [
           MenuItem.new('profile.author_page', 'profile/authors', :show),
-          MenuItem.new('profile.products', 'profile/products', :index),
+          MenuItem.new('profile.products', 'profile/products', :index, true),
           MenuItem.new('profile.change_password', 'profile/passwords', :edit)
       ]
     }

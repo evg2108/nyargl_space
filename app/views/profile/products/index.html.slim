@@ -9,16 +9,15 @@
               th style="width: 50px"
               th style="width: 50px"
                 .pull-right
-                  = link_to new_profile_product_path
-                    .span.glyphicon.glyphicon-plus
+                  = link_to '', new_profile_product_path, class: 'btn btn-link glyphicon glyphicon-plus'
           tbody
             - products.each do |product|
-              tr
+              tr id=product.id
                 td
-                  = product.title
+                  span.product_title
+                    = product.title
                 td
-                  = link_to edit_profile_product_path(product)
-                    .span.glyphicon.glyphicon-pencil
+                  = link_to '', edit_profile_product_path(product), class: 'btn btn-link glyphicon glyphicon-pencil'
                 td
-                  = link_to profile_product_path(product), method: :delete
-                    .span.glyphicon.glyphicon-trash
+                  = form_tag profile_product_path(product), method: :delete do
+                    = button_tag '', class: 'btn btn-link glyphicon glyphicon-trash', type: 'submit'

@@ -12,7 +12,7 @@ class MenuItemPresenter < BasePresenter
   end
 
   def active?
-    h.current_page?(object.page_identifier)
+    object.active_for_any_actions ? h.controller_path == object.controller_name.to_s : h.current_page?(object.page_identifier)
   end
 
   def link

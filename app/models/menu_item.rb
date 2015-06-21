@@ -1,10 +1,11 @@
 class MenuItem
-  attr_accessor :slug, :controller_name, :action_name
+  attr_accessor :slug, :controller_name, :action_name, :active_for_any_actions
 
-  def initialize(slug, controller, action)
+  def initialize(slug, controller, action, active_for_any_actions = false)
     self.slug = slug
     self.controller_name = controller
     self.action_name = action
+    self.active_for_any_actions = active_for_any_actions
   end
 
   def page_identifier

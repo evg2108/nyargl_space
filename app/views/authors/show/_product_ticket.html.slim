@@ -15,3 +15,4 @@ article.product.list_item.col-sm-6.col-md-12.col-lg-6
     .panel-footer
       = product_ticket.price_label
       = product_ticket.age_restriction_label
+      = present(product_ticket, presenter: :rating).rating_label

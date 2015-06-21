@@ -1,7 +1,7 @@
-article.author.col-sm-6
-  .panel.panel-default
+article.author.list_item.col-sm-6
+  .panel.panel-default.panel-with-shadow
     /.panel-heading # NOTE: this may used for admin abilities - links for moderation or sorting functions
-    .list_item.panel-body
+    .panel-body
       .content.media
         .media-left
           = link_to author_path(author_ticket, anchor: Anchors::CONTENT_SECTION) do
@@ -9,5 +9,12 @@ article.author.col-sm-6
         .media-body
           h4.media-heading
             = link_to author_ticket.full_name, author_path(author_ticket, anchor: Anchors::CONTENT_SECTION)
-          span.about_author_text
+          p.lead-description.text-justify
             = author_ticket.in_few_words
+    .panel-footer
+      .rating
+        .label.label-primary
+          span
+            .glyphicon.glyphicon-star style="color: gold"
+          span
+            | 53

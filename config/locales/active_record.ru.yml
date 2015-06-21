@@ -7,3 +7,11 @@ ru:
 #      user:
 #        one: "dfgdfg"
 #        more: "sdfgdfgsdfg"
+    attributes:
+      product:
+        age_restriction:
+          ar0: 0+
+          ar6: 6+
+          ar12: 12+
+          ar16: 16+
+          ar18: 18+

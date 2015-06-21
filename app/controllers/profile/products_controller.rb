@@ -24,7 +24,7 @@ module Profile
     private
 
     def product_params
-      params.require(:product).permit(:title, :description)
+      params.require(:product).permit(:title, :description, :price, :age_restriction)
     end
   end
 end

@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 20150607092930) do
     t.text     "description"
     t.integer  "age_restriction",                          default: 18,    null: false
     t.decimal  "price",           precision: 15, scale: 2, default: 0.0,   null: false
-    t.boolean  "free",                                     default: false, null: false
     t.json     "pictures"
     t.integer  "user_id"
     t.boolean  "enabled",                                  default: false, null: false
@@ -62,7 +61,6 @@ ActiveRecord::Schema.define(version: 20150607092930) do
   end
 
   add_index "products", ["age_restriction"], name: "index_products_on_age_restriction", using: :btree
-  add_index "products", ["free"], name: "index_products_on_free", using: :btree
   add_index "products", ["slug"], name: "index_products_on_slug", unique: true, using: :btree
   add_index "products", ["user_id"], name: "index_products_on_user_id", using: :btree
 

@@ -8,7 +8,6 @@ class CreateProducts < ActiveRecord::Migration
       t.integer :age_restriction, default: '18', null: false, index: true
 
       t.decimal :price, precision: 15, scale: 2, default: BigDecimal('0'), null: false
-      t.boolean :free, default: false, null: false, index: true
 
       t.json :pictures
 

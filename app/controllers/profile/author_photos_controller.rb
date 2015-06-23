@@ -60,7 +60,7 @@ module Profile
 
     def do_authorize
       if %w(create destroy).include?(action_name)
-        authorize current_author || Author
+        authorize current_author || Author, :update?
       else
         super
       end

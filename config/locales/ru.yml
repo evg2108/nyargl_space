@@ -27,9 +27,9 @@ ru:
       blogs: Блоги
       forums: Форум
       profile:
-        author_page: 'Ваша страница'
+        authors: 'Ваша страница'
         products: 'Ваши произведения'
-        change_password: 'Смена пароля'
+        passwords: 'Смена пароля'
   mailers:
     password_regeneration:
       subject: Ваш новый пароль от NyarglSpace

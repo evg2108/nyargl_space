@@ -12,6 +12,11 @@ ru:
     passwords:
       edit:
         submit: 'Сменить пароль'
+    products:
+      new:
+        cancel: Отмена
+      edit:
+        to_product_list: "К списку произведений \u21B4"
   password_regenerations:
     show:
       submit: 'Выслать новый пароль'

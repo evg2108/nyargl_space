@@ -6,7 +6,7 @@
           .row
             - author.photos.each do |photo|
               .col-xs-5.col-sm-3.col-md-4.col-lg-3
-                = form_tag profile_author_photo_path(photo.file.basename), method: :delete, class: 'author_photo_remove_form' do
+                = form_tag profile_author_photo_path(photo.file.basename), method: :delete, class: 'image_remove_form' do
                   = hidden_field_tag :anchor, Anchors::Profile::AUTHOR_PHOTOS
                   = image_tag photo.small_thumb.url
                   .form-group.text-center

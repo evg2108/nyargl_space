@@ -18,10 +18,12 @@ Rails.application.routes.draw do
   resources :forums, only: [:index, :show]
 
   namespace :profile do
-    resources :products
     resource :password, only: [:edit, :update], path_names: { edit: :change }
     resource :author, only: [:show, :update] do
       resources :photos, controller: :author_photos, only: [:create, :destroy]
+    end
+    resources :products do
+      resources :pictures, controller: :product_pictures, only: [:create, :destroy]
     end
   end
 end

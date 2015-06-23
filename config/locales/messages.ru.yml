@@ -17,6 +17,10 @@ ru:
         photos:
           upload: Не удалось загрузить фотографии
           remove: Не удалось удалить фото
+      product:
+        pictures:
+          upload: Не удалось загрузить изображения
+          remove: Не удалось удалить изображение
       user:
         empty_password: 'Вы не указали новый пароль. Был оставлен выш старый пароль.'
       password_regenerations:
@@ -28,6 +32,10 @@ ru:
         photos:
           upload: Фотографии загружены
           remove: Фото успешно удалено
+      product:
+        pictures:
+          upload: Изображения загружены
+          remove: Изображение успешно удалено
       user:
         password_changed: Вы успешно сменили пароль
       password_regenerations: На указанный вами почтовый ящик выслан новый пароль

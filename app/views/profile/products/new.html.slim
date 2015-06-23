@@ -1,3 +1,6 @@
 .profile_page.col-xs-12
   = present(presenter: :panel, title: 'Добавление произведения')
-    = render partial: 'profile/products/form', object: product, as: :product_object
+    = simple_form_for product, url: profile_products_path do |f|
+      = f.input :title, label: 'Введите название произведения'
+      = link_to t('.cancel'), profile_products_path(anchor: Anchors::CONTENT_SECTION), class: 'btn btn-link'
+      = f.button :submit, class: %w(pull-right)

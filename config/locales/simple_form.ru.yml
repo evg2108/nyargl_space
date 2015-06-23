@@ -14,6 +14,9 @@ ru:
       user:
         email: e-mail
         password: Пароль
+      product:
+        title: Название произведения
+        description: Введите описание вашего произведения
     labels:
       user:
         email: e-mail
@@ -24,6 +27,11 @@ ru:
         patronymic: Отчество
         about_author: О себе
         photos: Фотографии
+      product:
+        title: Заголовок
+        price: 'Цена, руб.'
+        age_restriction: 'Возрастное ограничение'
+        description: 'Описание'
     toggle_buttons:
       author:
         enabled:
@@ -42,6 +50,9 @@ ru:
       user:
         create: "Зарегистрироваться"
       author:
+        update: Сохранить
+      product:
+        create: "Перейти к заполнению данных \u27a4"
         update: Сохранить
     # Examples
     # labels:

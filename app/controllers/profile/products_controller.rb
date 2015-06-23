@@ -8,7 +8,7 @@ module Profile
     def create
       product.user = current_user
       product.save
-      redirect_to profile_products_path
+      redirect_to edit_profile_product_path(product)
     end
 
     def update

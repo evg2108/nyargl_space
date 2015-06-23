@@ -4,6 +4,7 @@
 @import "jcrop_fix";
 @import "shared/custom_components/file_input";
 @import "shared/dropzone/custom";
+@import "shared/application/removed_pictures_list";
 
 input.toggle_button {
   width: 200px;
@@ -13,12 +14,4 @@ input.toggle_button {
   border: #ccc 1px solid;
   box-shadow: #999 3px 3px;
   border-radius: 3px;
-}
-
-.previews img {
-  box-shadow: 0 0 10px #ccc;
-}
-
-.author_photo_remove_form {
-  width: 100px;
 }

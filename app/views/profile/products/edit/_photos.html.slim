@@ -1,0 +1,21 @@
+= present(presenter: :panel, title: 'Изображения произведения', id: Anchors::Profile::PRODUCT_PICTURES) do
+  - if product_object.pictures.any?
+    .row
+      .col-sm-12
+        .previews
+          .row
+            - product_object.pictures.each do |picture|
+              .col-xs-5.col-sm-3.col-md-4.col-lg-3
+                = form_tag profile_product_picture_path(product_object, picture.file.basename), method: :delete, class: 'image_remove_form' do
+                  = hidden_field_tag :anchor, Anchors::Profile::PRODUCT_PICTURES
+                  = image_tag picture.small_thumb.url
+                  .form-group.text-center
+                    = button_tag 'удалить', class: 'btn btn-link'
+  .row
+    .col-sm-12
+      noscript
+        = simple_form_for product_object, url: profile_product_pictures_path(product_object), method: 'post', html: { id: 'product_pictures_upload_form_noscript'} do |f|
+          = hidden_field_tag :anchor, Anchors::Profile::PRODUCT_PICTURES
+          = f.input :pictures, as: :file, label: false, input_html: {multiple: true}
+          = f.button :submit
+      = form_tag(profile_product_pictures_path(product_object), class: 'dropzone', id: 'product_pictures_upload_form_dropzone') { }

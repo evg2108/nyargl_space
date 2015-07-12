@@ -29,8 +29,12 @@ class ProductDecorator < Draper::Decorator
   end
 
   def price_label
-    h.content_tag :span, class: %w(price label label-primary) do
-      h.number_to_currency object.price
+    if object.price > 0
+      h.content_tag :span, class: %w(price label label-primary) do
+        h.number_to_currency object.price
+      end
+    else
+      h.content_tag :span, 'бесплатно', class: %w(price label label-success)
     end
   end
 end

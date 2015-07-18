@@ -37,4 +37,12 @@ class ProductDecorator < Draper::Decorator
       h.content_tag :span, 'бесплатно', class: %w(price label label-success)
     end
   end
+
+  def description_formatted
+    result = []
+    description.split("\n").each do |paragraph|
+      result << h.content_tag(:p, paragraph, class: 'text-justify') if paragraph.present?
+    end
+    result.join.html_safe if result.any?
+  end
 end

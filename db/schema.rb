@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150607092930) do
+ActiveRecord::Schema.define(version: 20150718112834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,17 +21,32 @@ ActiveRecord::Schema.define(version: 20150607092930) do
     t.string   "last_name"
     t.string   "patronymic"
     t.text     "about_author"
+    t.string   "avatar"
+    t.json     "photos"
     t.string   "slug"
     t.integer  "user_id"
     t.boolean  "enabled",      default: false, null: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-    t.string   "avatar"
-    t.json     "photos"
   end
 
   add_index "authors", ["slug"], name: "index_authors_on_slug", unique: true, using: :btree
   add_index "authors", ["user_id"], name: "index_authors_on_user_id", using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.integer  "commentator_id"
+    t.integer  "reply_commentator_id"
+    t.boolean  "enabled",              default: true, null: false
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["commentable_type", "commentable_id"], name: "commentable_index", using: :btree
+  add_index "comments", ["commentator_id"], name: "index_comments_on_commentator_id", using: :btree
+  add_index "comments", ["reply_commentator_id"], name: "index_comments_on_reply_commentator_id", using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -72,6 +87,7 @@ ActiveRecord::Schema.define(version: 20150607092930) do
     t.boolean  "confirmed_email", default: false, null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.string   "nickname"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

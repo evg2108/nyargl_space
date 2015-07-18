@@ -1,0 +1,24 @@
+article.row
+  .col-sm-12
+    .responsible-image-and-text
+      - if product_content.pictures.any?
+        .media-container.img-thumbnail
+          .images
+            - product_content.pictures.each_with_index do |picture, index|
+              .image class=('show' if index == 0)
+                img src=picture.medium_image.url
+      .text
+        .header
+          h1
+            = product_content.title
+          - if product_content.author
+            .author_info
+              strong.text-muted
+                ' Автор:
+              = link_to product_content.author.full_name, author_path(product_content.author), class: 'author_name text-muted'
+          .product_tech_info.spans_with_gap
+            = product_content.price_label
+            = product_content.age_restriction_label
+            = present(product_content, presenter: :rating).rating_label
+        span.product_description
+          = product_content.description_formatted

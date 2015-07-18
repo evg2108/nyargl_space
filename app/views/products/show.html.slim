@@ -1,24 +1,24 @@
-article.row
+= render partial: 'products/show/product_content', object: product
+hr
+section.comments.row
   .col-sm-12
-    .responsible-image-and-text
-      - if product.pictures.any?
-        .media-container.img-thumbnail
-          .images
-            - product.pictures.each_with_index do |picture, index|
-              .image class=('show' if index == 0)
-                img src=picture.medium_image.url
-      .text
-        .header
-          h1
-            = product.title
-          - if product.author
-            .author_info
-              strong.text-muted
-                ' Автор:
-              = link_to product.author.full_name, author_path(product.author), class: 'author_name text-muted'
-          .product_tech_info.spans_with_gap
-            = product.price_label
-            = product.age_restriction_label
-            = present(product, presenter: :rating).rating_label
-        span.product_description
-          = product.description
+    .row
+      header.col-sm-12
+        strong.h3
+          | Комментарии
+    .row
+      section.new_comment.col-sm-12
+        = simple_form_for comment, url: comments_path, remote: true do |f|
+          = f.input :commentable_type, as: :hidden
+          = f.input :commentable_id, as: :hidden
+          = f.input :content, label: false
+          = f.button :submit, class: 'pull-right'
+        .clearfix
+    .row
+      section.comments_list.col-sm-12
+        - comments.each do |comment|
+          article.comment
+            header
+              = comment.comment_author_name
+            .body
+              = comment.content_formatted

@@ -5,6 +5,8 @@ class CreateAuthors < ActiveRecord::Migration
       t.string :last_name
       t.string :patronymic
       t.text :about_author
+      t.string :avatar
+      t.json :photos
 
       t.string :slug, index: { unique: true }
 

@@ -17,6 +17,8 @@ ru:
       product:
         title: Название произведения
         description: Введите описание вашего произведения
+      comment:
+        content: Введите свой комментарий
     labels:
       user:
         email: e-mail
@@ -54,6 +56,8 @@ ru:
       product:
         create: "Перейти к заполнению данных \u27a4"
         update: Сохранить
+      comment:
+        create: Комментировать
     # Examples
     # labels:
     #   defaults:

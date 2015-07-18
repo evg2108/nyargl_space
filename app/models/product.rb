@@ -7,6 +7,7 @@ class Product < ActiveRecord::Base
 
   belongs_to :user
   has_one :author, through: :user
+  has_many :comments, as: :commentable
 
   enum age_restriction: { ar0: 0, ar6: 6, ar12: 12, ar16: 16, ar18: 18 }
 

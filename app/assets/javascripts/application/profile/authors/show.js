@@ -1,6 +1,6 @@
 //= require layouts/application
 //= require inputs/toggle_button_input
-//= require shared/application/noty_error_callback.js
+//= require shared/application/noty_callbacks.js
 //= require jcrop.js
 //= require shared/hacks/detect_ie_version.js
 //= require shared/custom/dropzone

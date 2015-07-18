@@ -1,5 +1,5 @@
 //= require layouts/application
-//= require shared/application/noty_error_callback.js
+//= require shared/application/noty_callbacks.js
 //= require_self
 
 function initFormBindings(success_callback, error_callback) {

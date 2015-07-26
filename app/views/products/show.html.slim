@@ -1,24 +1,3 @@
 = render partial: 'products/show/product_content', object: product
 hr
-section.comments.row
-  .col-sm-12
-    .row
-      header.col-sm-12
-        strong.h3
-          | Комментарии
-    .row
-      section.new_comment.col-sm-12
-        = simple_form_for comment, url: comments_path, remote: true do |f|
-          = f.input :commentable_type, as: :hidden
-          = f.input :commentable_id, as: :hidden
-          = f.input :content, label: false
-          = f.button :submit, class: 'pull-right'
-        .clearfix
-    .row
-      section.comments_list.col-sm-12
-        - comments.each do |comment|
-          article.comment
-            header
-              = comment.comment_author_name
-            .body
-              = comment.content_formatted
+= render partial: 'comments/comments', object: comments, locals: { comment: comment }

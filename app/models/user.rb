@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  mount_uploader :avatar, UserAvatarUploader
+
   validates :email, presence: true, uniqueness: true, email: true
   validates :password_digest, presence: true
 

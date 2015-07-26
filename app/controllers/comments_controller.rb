@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
-  expose(:comment, attributes: :comment_params)
+  expose(:comment, attributes: :permitted_params)
 
-  before_filter :set_commentator, only: [:create]
+  before_filter :set_commentator, only: [:create, :update]
 
   def create
     result = comment.save
@@ -11,12 +11,24 @@ class CommentsController < ApplicationController
         set_simple_error_message comment.errors.full_messages unless result
         redirect_to(request.env['HTTP_REFERER'].presence || root_path)
       end
-      f.js do
+      f.json do
         if result
-          render nothing: true
+          render json: { result: render_to_string(partial: 'comments/comment_item', object: comment.decorate, formats: [:html]) }
         else
-          render json: { message: simple_error_message(comment.errors.full_messages) }, status: :unprocessable_entity, content_type: 'application/json'
+          render json: { message: simple_error_message(comment.errors.full_messages) }, status: :unprocessable_entity
         end
+      end
+    end
+  end
+
+  def destroy
+    comment.destroy
+    respond_to do |f|
+      f.html do
+        redirect_to(request.env['HTTP_REFERER'].presence || root_path)
+      end
+      f.json do
+        render json: { id: comment.id }
       end
     end
   end
@@ -24,10 +36,6 @@ class CommentsController < ApplicationController
   private
 
   def set_commentator
-    comment.commentator = current_user
-  end
-
-  def comment_params
-    params.require(:comment).permit(:content, :commentable_type, :commentable_id)
+    comment.commentator = current_user unless current_user.guest?
   end
 end

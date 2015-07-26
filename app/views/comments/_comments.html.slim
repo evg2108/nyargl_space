@@ -1,0 +1,10 @@
+section.comments.row
+  .col-sm-12
+    .row
+      header.col-sm-12
+        strong.h3
+          | Комментарии
+    = render partial: 'comments/comment_form', object: comment, as: :comment
+    .row style="padding-top: 20px;"
+      section.comments_list.col-sm-12
+        = render partial: 'comments/comment_item', collection: comments

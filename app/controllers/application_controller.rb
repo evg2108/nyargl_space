@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include AuthenticationHelper
   include FlashMessenger
   include PageTitleHelper
+  include StrongParamsManager
 
   # Then, when you'd like parameters to be assigned to a model, add the attributes option to your exposure:
   # class FooController < ApplicationController

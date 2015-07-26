@@ -4,5 +4,7 @@ class Comment < ActiveRecord::Base
   belongs_to :commentator, class_name: 'User'
   belongs_to :reply_commentator, class_name: 'User'
 
+  validates :content, presence: true
+
   scope :only_enabled, ->(){ where(enabled: true) }
 end

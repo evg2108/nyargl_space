@@ -30,7 +30,7 @@ class ImagePlaceholder
       files.try(:[], model_name)
            .try(:[], image_field_name)
            .try(:[], thumb)
-           .try(:[], model.id.modulo(files_count.try(:[], model_name).try(:[], image_field_name).try(:[], thumb) || 1)) || ''
+           .try(:[], (model.id || 1).modulo(files_count.try(:[], model_name).try(:[], image_field_name).try(:[], thumb) || 1)) || ''
     end
   end
 end

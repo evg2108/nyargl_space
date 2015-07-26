@@ -1,23 +1,34 @@
 document.remote_forms = (function($) {
     var exports = {};
 
-    exports.init = function(form_class_or_id, callbacks) {
-        var $form = $('form' + form_class_or_id + '[data-remote="true"]');
-        if ($form.length > 0 && typeof callbacks == 'object') {
-            if (callbacks.error) {
-                $form.on('ajax:error', callbacks.error);
+    exports.init = function(parent_selector, form_class_or_id, callbacks) {
+        $(parent_selector).on('submit', 'form' + form_class_or_id, function(e) {
+            e.preventDefault();
+
+            var $this = $(this);
+            var options = {
+                url: $this.attr('action'),
+                dataType: 'JSON',
+                method: $this.attr('method'),
+                data: $this.serialize()
+            };
+
+            if (typeof callbacks == 'object') {
+                if (callbacks.error) {
+                    options.error = callbacks.error;
+                }
+
+                if (callbacks.success) {
+                    options.success = callbacks.success;
+                }
+
+                if (callbacks.complete) {
+                    options.complete = callbacks.complete;
+                }
             }
 
-            if (callbacks.success) {
-                $form.on('ajax:success', callbacks.success);
-            }
-
-            if (callbacks.complete) {
-                $form.on('ajax:complete', callbacks.complete);
-            }
-        }
-
-        return $form;
+            $.ajax(options);
+        });
     };
 
     return exports;

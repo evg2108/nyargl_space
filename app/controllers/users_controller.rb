@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if get_id
       User.find(get_id)
     elsif params[:user]
-      User.new(user_params)
+      User.new(permitted_params)
     elsif in_session_file_storage?(:user)
       read_from_session_file_storage(User)
     else
@@ -30,10 +30,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-  def user_params
-    params.require(:user).permit(:email, :password)
-  end
 
   def authorize_for_registration
     authorize :registration

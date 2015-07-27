@@ -1,9 +1,7 @@
 module Profile
   class AuthorsController < Profile::BaseController
-    #TODO перенести сюда функционал изменения автора
-
     expose(:author) do
-      current_author.attributes = author_params if current_author && action_name == 'update'
+      current_author.attributes = permitted_params if current_author && action_name == 'update'
       current_author
     end
 
@@ -37,10 +35,6 @@ module Profile
       else
         super
       end
-    end
-
-    def author_params
-      params.require(:author).permit(:first_name, :last_name, :patronymic, :about_author, :enabled, :avatar)
     end
   end
 end

@@ -1,10 +1,6 @@
-require "#{Rails.root}/app/controllers/param_permitters/base_param_permitter.rb"
-
 module StrongParamsManager
   def permitted_params
-    file_name = "#{controller_name}_param_permitter"
-    #TODO почему-то добавление в autoload_paths не работает. разобраться почему
-    require "#{Rails.root}/app/controllers/param_permitters/#{file_name}.rb"
-    params.require(controller_name.singularize).permit(file_name.camelcase.constantize.actions[action_name])
+    permission_class = "#{self.class.name.sub('Controller', '')}Permission".camelcase.constantize
+    params.require(permission_class.resource_name || controller_name.singularize).permit(permission_class.actions[action_name])
   end
 end

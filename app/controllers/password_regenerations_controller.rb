@@ -11,7 +11,7 @@ class PasswordRegenerationsController < ApplicationController
   before_filter :validate_recaptcha, only: [:create]
 
   def create
-    email = user_params[:email]
+    email = permitted_params[:email]
     user = User.find_by_email(email)
 
     if user
@@ -24,11 +24,5 @@ class PasswordRegenerationsController < ApplicationController
       set_error_message :password_regenerations, :email, :not_found
     end
     redirect_to password_regeneration_path, status: 303
-  end
-
-  private
-
-  def user_params
-    params.require(:user).permit(:email)
   end
 end

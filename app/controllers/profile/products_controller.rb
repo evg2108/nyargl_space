@@ -2,7 +2,7 @@ module Profile
   class ProductsController < Profile::BaseController
     include Pundit
 
-    expose(:product, attributes: :product_params)
+    expose(:product, attributes: :permitted_params)
     expose(:products) { current_user.products }
 
     def create
@@ -19,12 +19,6 @@ module Profile
     def destroy
       product.destroy
       redirect_to :back
-    end
-
-    private
-
-    def product_params
-      params.require(:product).permit(:title, :description, :price, :age_restriction)
     end
   end
 end

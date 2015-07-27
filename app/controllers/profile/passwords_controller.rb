@@ -1,7 +1,7 @@
 module Profile
   class PasswordsController < Profile::BaseController
     expose(:user) do
-      current_user.attributes = user_params if !current_user.guest? && action_name == 'update'
+      current_user.attributes = permitted_params if !current_user.guest? && action_name == 'update'
       current_user
     end
 
@@ -31,7 +31,7 @@ module Profile
     private
 
     def user_params
-      params.require(:user).permit(:password)
+      params.require(:user).permit()
     end
 
     def do_authorize

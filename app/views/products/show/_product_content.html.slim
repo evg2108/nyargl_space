@@ -16,7 +16,7 @@ article.row
               strong.text-muted
                 ' Автор:
               = link_to product_content.author.full_name, author_path(product_content.author), class: 'author_name text-muted'
-          .product_tech_info.spans_with_gap
+          .product_tech_info.with_gap
             = product_content.price_label
             = product_content.age_restriction_label
             = present(product_content, presenter: :rating).rating_label

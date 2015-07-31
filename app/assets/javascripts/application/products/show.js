@@ -17,9 +17,15 @@ $(document).ready(function () {
         }
     });
 
-    document.remote_forms.init('section.comments', '.edit_comment', {
+    document.remote_forms.init('section.comments', '.remove_comment_form', {
         success: function(result, status, xhr) {
-            $('article.comment#' + result.id).remove();
+            $('.comments_list #comment_' + result.id).remove();
         }
     });
+
+    //document.remote_forms.init('section.comments', '.edit_comment', {
+    //    success: function(result, status, xhr) {
+    //        $('article.comment#' + result.id).remove();
+    //    }
+    //});
 });

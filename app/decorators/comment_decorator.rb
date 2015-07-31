@@ -13,8 +13,10 @@ class CommentDecorator < Draper::Decorator
   def reply_author_name
     output = ActionView::OutputBuffer.new
     if reply_commentator
-      output << ' отвечает -> '
-      output << author_name(reply_commentator)
+      output << h.content_tag(:span, class: 'label label-default') do
+        h.content_tag(:span, nil, class: 'glyphicon glyphicon-share-alt')
+      end
+      output << h.content_tag(:span, author_name(reply_commentator), class: 'label')
     end
     output
   end

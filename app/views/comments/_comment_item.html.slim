@@ -1,20 +1,22 @@
-article.comment id=comment_item.id
+article.comment id="comment_#{comment_item.id}"
   .panel.panel-default
+    .panel-heading
+      - if policy(comment_item).update?
+        .comment_actions.with_gap.pull-right
+          = link_to '', class: 'btn btn-default btn-xs'
+            span.glyphicon.glyphicon-pencil
+          = form_for comment_item, method: :delete, html: {class: 'display-inline-block remove_comment_form'} do |f|
+            = f.button class: 'btn btn-xs btn-danger' do
+              span.glyphicon.glyphicon-remove
+      .comment-info.pull-left
+        span.label
+          = comment_item.comment_author_name
+      .clearfix
     .panel-body
       .media
         .media-left
           = comment_item.commentator_avatar(class: 'media-object')
         .media-body
-          h5.media-heading
-            strong
-              = comment_item.comment_author_name
-            = comment_item.reply_author_name
           .body
+            = comment_item.reply_author_name
             = comment_item.content_formatted
-        - if policy(comment_item).update?
-          .media-right
-            = link_to '', class: 'text-nowrap'
-              span.glyphicon.glyphicon-edit
-              ' &nbsp;редактировать
-            = form_for comment_item, method: :delete do |f|
-              = f.submit 'Удалить', class: 'btn btn-link'

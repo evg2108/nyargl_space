@@ -12,7 +12,7 @@ article.product.list_item.col-sm-6.col-md-12.col-lg-6
             = link_to product_ticket.title, product_path(product_ticket, anchor: Anchors::CONTENT_SECTION), class: 'show', title: product_ticket.title
           p.lead-description.text-justify
             = product_ticket.lead(180)
-    .panel-footer.spans_with_gap
+    .panel-footer.with_gap
       = product_ticket.price_label
       = product_ticket.age_restriction_label
       = present(product_ticket, presenter: :rating).rating_label

@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
     comment.destroy
     respond_to do |f|
       f.html do
-        redirect_to(request.env['HTTP_REFERER'].presence || root_path)
+        redirect_to("#{request.env['HTTP_REFERER'].presence}#comments" || root_path)
       end
       f.json do
         render json: { id: comment.id }

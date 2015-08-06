@@ -1,0 +1,4 @@
+- if policy(comment).create?
+  .row
+    section.new_comment.col-sm-12
+      = render partial: 'comments/comment_form', object: comment, as: :comment

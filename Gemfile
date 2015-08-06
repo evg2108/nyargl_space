@@ -20,6 +20,9 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
+gem 'oj'
+gem 'oj_mimic_json'
+gem 'multi_json'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt'

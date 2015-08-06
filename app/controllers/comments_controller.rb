@@ -21,6 +21,15 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    respond_to do |f|
+      f.json
+      f.html do
+
+      end
+    end
+  end
+
   def destroy
     comment.destroy
     respond_to do |f|

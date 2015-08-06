@@ -3,7 +3,7 @@ article.comment id="comment_#{comment_item.id}"
     .panel-heading
       - if policy(comment_item).update?
         .comment_actions.with_gap.pull-right
-          = link_to '', class: 'btn btn-default btn-xs'
+          = link_to edit_comment_path(comment_item), class: 'btn btn-default btn-xs edit'
             span.glyphicon.glyphicon-pencil
           = form_for comment_item, method: :delete, html: {class: 'display-inline-block remove_comment_form'} do |f|
             = f.button class: 'btn btn-xs btn-danger' do

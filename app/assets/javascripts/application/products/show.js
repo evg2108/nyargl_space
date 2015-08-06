@@ -2,6 +2,7 @@
 //= require shared/application/image_slider
 //= require shared/application/noty_callbacks
 //= require shared/application/remote_forms
+//= require shared/application/comments
 //= require_self
 
 $(document).ready(function () {

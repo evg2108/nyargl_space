@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index, :show]
 
-  resources :comments, only: [:create, :update, :destroy]
+  resources :comments, only: [:create, :edit, :update, :destroy]
 
   resources :blogs, only: [:index, :show]
   resources :forums, only: [:index, :show]

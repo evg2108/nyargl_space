@@ -118,6 +118,8 @@ GEM
       actionview
       activesupport
       railties
+    oj (2.12.11)
+    oj_mimic_json (1.0.1)
     pg (0.18.2)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -239,7 +241,10 @@ DEPENDENCIES
   kaminari
   keepass-password-generator
   mini_magick
+  multi_json
   nyargl_recaptcha
+  oj
+  oj_mimic_json
   pg
   pry-rails
   pundit

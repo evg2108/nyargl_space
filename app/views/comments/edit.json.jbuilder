@@ -1,3 +1,1 @@
-json.id comment.id
-json.action comment_path(comment)
-json.content comment.content
+json.result render(partial: 'edit_comment_form', object: comment, as: :comment, formats: [:html])

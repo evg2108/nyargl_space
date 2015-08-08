@@ -1,0 +1,5 @@
+- set_page_title 'Изменение комментария'
+
+.row
+  section.col-sm-12
+    = render partial: 'comments/edit_comment_form', object: comment, as: :comment, locals: { redirect_to: request.env['HTTP_REFERER'].presence }

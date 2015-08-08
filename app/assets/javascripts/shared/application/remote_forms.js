@@ -14,16 +14,22 @@ document.remote_forms = (function($) {
             };
 
             if (typeof callbacks == 'object') {
-                if (callbacks.error) {
-                    options.error = callbacks.error;
-                }
+                if (callbacks.complete || callbacks.success || callbacks.error) {
+                    options.complete = function(xhr, status) {
+                        if (callbacks.complete) {
+                            callbacks.complete(xhr, status);
+                        }
 
-                if (callbacks.success) {
-                    options.success = callbacks.success;
-                }
-
-                if (callbacks.complete) {
-                    options.complete = callbacks.complete;
+                        if (status == 'success') {
+                            if (callbacks.error && xhr.responseJSON.status == 'error') {
+                                callbacks.error(xhr);
+                            } else if (callbacks.success && status == 'success') {
+                                callbacks.success(xhr);
+                            }
+                        } else {
+                            console.log('Неожиданный ответ сервера');
+                        }
+                    };
                 }
             }
 

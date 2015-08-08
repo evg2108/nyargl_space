@@ -1,0 +1,4 @@
+= simple_form_for comment do |f|
+  = hidden_field_tag :redirect_to, redirect_to if local_assigns[:redirect_to]
+  = f.input :content, label: false
+  = f.button :submit, class: 'pull-right'

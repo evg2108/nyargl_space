@@ -1,4 +1,7 @@
 - if policy(comment).create?
   .row
-    section.new_comment.col-sm-12
-      = render partial: 'comments/comment_form', object: comment, as: :comment
+    section.new_comment_form.col-sm-12
+      = render partial: 'comments/new_comment_form', object: comment, as: :comment
+  .row
+    section.edit_comment_form.col-sm-12.hidden
+      -# Контейнер для вставки формы редактирования

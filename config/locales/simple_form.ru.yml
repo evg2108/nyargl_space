@@ -58,6 +58,7 @@ ru:
         update: Сохранить
       comment:
         create: Комментировать
+        update: Изменить комментарий
     # Examples
     # labels:
     #   defaults:

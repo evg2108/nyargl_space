@@ -8,6 +8,9 @@ class AuthorsController < ApplicationController
 
   rescue_from(Pundit::NotAuthorizedError){ authorization_error }
 
+  expose(:comments) { author.comments.only_enabled.order(created_at: :desc).decorate }
+  expose(:comment) { author.comments.new }
+
   private
 
   def authorization

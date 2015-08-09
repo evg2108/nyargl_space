@@ -1,0 +1,5 @@
+.comments_list:empty:before {
+  content: 'Сейчас комментарии на этой странице отсутствуют. Вы можете оставить свой комментарий.';
+  font-size: 1.2em;
+  font-style: italic;
+}

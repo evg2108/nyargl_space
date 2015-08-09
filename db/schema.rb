@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150719083626) do
+ActiveRecord::Schema.define(version: 20150809085521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,9 +25,10 @@ ActiveRecord::Schema.define(version: 20150719083626) do
     t.json     "photos"
     t.string   "slug"
     t.integer  "user_id"
-    t.boolean  "enabled",      default: false, null: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.boolean  "enabled",        default: false, null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "comments_count", default: 0,     null: false
   end
 
   add_index "authors", ["slug"], name: "index_authors_on_slug", unique: true, using: :btree
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 20150719083626) do
     t.boolean  "blocked",                                  default: false, null: false
     t.datetime "created_at",                                               null: false
     t.datetime "updated_at",                                               null: false
+    t.integer  "comments_count",                           default: 0,     null: false
   end
 
   add_index "products", ["age_restriction"], name: "index_products_on_age_restriction", using: :btree

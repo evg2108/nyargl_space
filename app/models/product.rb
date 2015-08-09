@@ -9,6 +9,8 @@ class Product < ActiveRecord::Base
   has_one :author, through: :user
   has_many :comments, as: :commentable
 
+  attr_readonly :comments_count
+
   enum age_restriction: { ar0: 0, ar6: 6, ar12: 12, ar16: 16, ar18: 18 }
 
   def self.localized_age_restrictions

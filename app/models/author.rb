@@ -8,6 +8,9 @@ class Author < ActiveRecord::Base
 
   belongs_to :user
   has_many :products, through: :user
+  has_many :comments, as: :commentable
+
+  attr_readonly :comments_count
 
   validates :first_name, presence: true
 

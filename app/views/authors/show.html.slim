@@ -3,3 +3,5 @@ hr
 article.row
   .col-sm-12
     = render partial: 'authors/show/product_ticket', collection: author.products.decorate
+hr
+= render partial: 'comments/comments', object: comments, locals: { comment: comment }

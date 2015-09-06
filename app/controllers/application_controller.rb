@@ -26,4 +26,6 @@ class ApplicationController < ActionController::Base
         MenuItem.new(:forums, :index),
     ]
   }
+
+  expose(:last_comments) { Comment.only_enabled.order(created_at: :desc).limit(5).decorate }
 end

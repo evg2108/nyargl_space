@@ -1,8 +1,8 @@
 class CommentDecorator < Draper::Decorator
   delegate_all
 
-  def lead(length = 230)
-    h.truncate(description, length: length, separator: ' ')
+  def lead_content(length = 230)
+    h.truncate(content, length: length, separator: ' ')
   end
 
   def comment_author_name
@@ -21,7 +21,7 @@ class CommentDecorator < Draper::Decorator
     output
   end
 
-  def content_formatted
+  def content_formatted(length = nil)
     result = []
     content.split("\n").each do |paragraph|
       result << h.content_tag(:p, paragraph, class: 'text-justify') if paragraph.present?

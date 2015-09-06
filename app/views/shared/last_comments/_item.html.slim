@@ -1,0 +1,7 @@
+.row
+  .col-sm-12
+    article.last_comment_item
+      header
+        = link_to item.commentable.title, polymorphic_path(item.commentable, anchor: "comment_#{item.id}")
+      .body
+        = item.lead_content(100)

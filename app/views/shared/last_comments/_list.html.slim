@@ -1,0 +1,8 @@
+- if list.present?
+  .row
+    .col-xs-12
+      section.last_comments_lit
+        header
+          .h4
+            | Последние комментарии
+        = render partial: 'shared/last_comments/item', collection: list

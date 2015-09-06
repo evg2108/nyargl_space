@@ -24,6 +24,8 @@ class Author < ActiveRecord::Base
 
     full_name_array.join(' ')
   end
+  alias_method :title, :full_name
+
 
   def has_slug?
     !changed_attributes.has_key?(:slug) || changed_attributes[:slug].present?

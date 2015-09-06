@@ -18,5 +18,5 @@ html
                 h1= get_page_title
           = yield
         aside.right_side.col-md-2.col-xs-12
-          = yield :right_side
+          = render partial: 'shared/last_comments/list', object: last_comments
     = render partial: 'shared/footer'

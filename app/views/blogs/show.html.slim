@@ -1,0 +1,10 @@
+- set_page_title blog.title
+
+.row
+  .col-sm-12
+    = blog.description
+.row
+  .col-sm-12
+    = link_to new_blog_blog_post_path(blog), class: 'btn btn-link with_gap' do
+      span.glyphicon.glyphicon-plus
+      | Запостить новый пост

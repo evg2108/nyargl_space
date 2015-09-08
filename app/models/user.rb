@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   has_one :author, dependent: :destroy
   has_many :products, dependent: :nullify
+  has_many :blogs, dependent: :nullify
 
   has_secure_password
 

@@ -3,3 +3,7 @@
 = link_to new_blog_path, class: 'btn btn-link with_gap' do
   span.glyphicon.glyphicon-plus
   | Я хочу свой блог
+
+section.row.blogs
+  - blogs.each do |current_blog|
+    = render partial: 'blogs/index/blog_ticket', object: current_blog, locals: { blog_posts: last_blog_posts_for(current_blog) }

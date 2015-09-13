@@ -1,0 +1,31 @@
+article.blog.list_item.col-sm-6
+  .panel.panel-default.panel-with-shadow
+    /.panel-heading # NOTE: this may used for admin abilities - links for moderation or sorting functions
+    .panel-body.with_list
+      .row
+        .col-sm-12
+          .content.media
+            .media-left
+              = link_to blog_path(blog_ticket, anchor: Anchors::CONTENT_SECTION) do
+                = image_tag image_path_or_placeholder(blog_ticket.user, :avatar), class: 'thumb media-object'
+            .media-body
+              h4.media-heading
+                = link_to blog_ticket.title, blog_path(blog_ticket, anchor: Anchors::CONTENT_SECTION), class: 'show'
+                small title="Автор: #{blog_ticket.user.nickname.presence || blog_ticket.user.email}"
+                  strong
+                    ' Автор:
+                  span.text-muted
+                    = blog_ticket.user.nickname.presence || blog_ticket.user.email
+              p.lead-description.text-justify
+                = blog_ticket.description
+      - if local_assigns[:blog_posts].present?
+        section.row.blog_posts
+          .col-sm-12
+            - blog_posts.each do |bp|
+              article.blog_post
+                header
+                  = link_to bp.title, blog_post_path(bp)
+                .body
+                  = bp.content
+    .panel-footer
+      = present(blog_ticket, presenter: :rating).rating_label

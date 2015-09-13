@@ -7,6 +7,10 @@
   .panel-body {
     height: 132px;
 
+    &.with_list {
+      height: 200px;
+    }
+
     .content {
       height: 100%;
     }

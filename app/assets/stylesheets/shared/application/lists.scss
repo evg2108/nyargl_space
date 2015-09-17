@@ -13,6 +13,10 @@
 
     .content {
       height: 100%;
+
+      .fixed-height-lead {
+        height: 50px;
+      }
     }
 
     .thumb {

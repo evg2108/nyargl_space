@@ -1,0 +1,16 @@
+.ellipsis_container {
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+
+  .ellipsis_string {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+  }
+
+  small.ellipsis_string {
+    margin-top: 5px;
+  }
+}

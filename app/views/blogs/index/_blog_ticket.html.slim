@@ -1,3 +1,11 @@
+css:
+  article.blog_post:not(:first-child){
+    padding-left: 15px;
+  }
+  .scrollable_container {
+    overflow: auto;
+    height: 100px;
+  }
 article.blog.list_item.col-sm-6
   .panel.panel-default.panel-with-shadow
     /.panel-heading # NOTE: this may used for admin abilities - links for moderation or sorting functions
@@ -16,15 +24,19 @@ article.blog.list_item.col-sm-6
                     ' Автор:
                   span.text-muted
                     = blog_ticket.user.nickname.presence || blog_ticket.user.email
-              p.lead-description.fixed-height-lead.text-justify
+              p.lead-description.text-justify
                 = blog_ticket.description
       - if local_assigns[:blog_posts].present?
-        section.row.blog_posts
-          - blog_posts.each do |bp|
-            article.col-sm-6.blog_post
-              header
-                = link_to bp.title, blog_post_path(bp)
-              .body
-                = bp.content
+        .scrollable_container
+          section.blog_posts style="width: #{50 * blog_posts.size}%"
+            - blog_posts.each do |bp|
+              article.blog_post style="width: #{100.0 / blog_posts.size}%; display: inline-block;"
+                header.text-muted
+                  .creation_date
+                    small запись от #{l(bp.created_at, format: :short)}
+                  .title
+                  = link_to bp.title, blog_post_path(bp)
+                .body
+                  = bp.content
     .panel-footer
       = present(blog_ticket, presenter: :rating).rating_label

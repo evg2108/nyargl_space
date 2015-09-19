@@ -8,15 +8,15 @@
     height: 132px;
 
     &.with_list {
-      height: 200px;
+      height: 220px;
+
+      .lead-description {
+        height: 50px;
+      }
     }
 
     .content {
       height: 100%;
-
-      .fixed-height-lead {
-        height: 50px;
-      }
     }
 
     .thumb {

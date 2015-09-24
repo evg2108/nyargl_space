@@ -1,0 +1,22 @@
+.scrollable-container {
+  overflow: auto;
+  height: 100px;
+
+  @for $i from 1 to 6{
+    .scrollable-wrapper-#{$i} {
+      width: #{50 * $i + "%"};
+
+      .scrollable-item {
+        width: #{100 / $i + "%"};
+      }
+    }
+  }
+
+  .scrollable-item {
+    display: inline-block;
+
+    &:not(:first-child){
+      padding-left: 15px;
+    }
+  }
+}

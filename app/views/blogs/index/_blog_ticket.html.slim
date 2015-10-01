@@ -20,7 +20,7 @@ article.blog.list_item.col-sm-6
                 = blog_ticket.description
       - if local_assigns[:blog_posts].present?
         .scrollable-container
-          section.blog_posts class="scrollable-wrapper-#{blog_posts.size}"
+          section.blog_posts class="scrollable-wrapper"
             - blog_posts.each do |bp|
               article.blog_post.scrollable-item
                 header.text-muted

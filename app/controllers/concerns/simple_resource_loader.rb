@@ -44,17 +44,9 @@ module SimpleResourceLoader
 
   # TODO need to write a test
   def single_resource
-    if get_id
-      result = self.class.resource_class.find(get_id)
-      result.assign_attributes(safe_params) if request.put? || request.patch?
-      self.class.decorator_class ? result.decorate : result
-    else
-      # if try(:in_session_file_storage?) && (validated_model = try(:read_from_session_file_storage, self.class.resource_class))
-      #   validated_model
-      # else
-        self.class.resource_class.new(safe_params)
-      # end
-    end
+    result = get_id ? self.class.resource_class.find(get_id) : self.class.resource_class.new
+    result.assign_attributes(safe_params) if request.put? || request.patch? || request.post?
+    self.class.decorator_class ? result.decorate : result
   end
 
   # TODO need to write a test
@@ -68,14 +60,14 @@ module SimpleResourceLoader
 
   # TODO need to write a test
   def safe_params
-    resurce_name = self.class.resource_name
-    params_method_name = "#{resurce_name}_params".to_sym
-    if params[resurce_name]
-      if respond_to?(params_method_name) || private_methods.include?(params_method_name)
-        send(params_method_name)
-      else
-        raise ActiveModel::ForbiddenAttributesError, "Please, define the '#{params_method_name}' method in #{self.class.name}"
-      end
+    if respond_to?(:permitted_params)
+      return permitted_params
+    else
+      resurce_name = self.class.resource_name
+      params_method_name = "#{resurce_name}_params".to_sym
+      return send(params_method_name) if respond_to?(params_method_name) || private_methods.include?(params_method_name)
     end
+
+    raise ActiveModel::ForbiddenAttributesError, "Please, define the 'premitted_params' method or '#{params_method_name}' method in #{self.class.name}"
   end
 end

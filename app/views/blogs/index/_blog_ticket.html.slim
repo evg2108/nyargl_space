@@ -26,8 +26,8 @@ article.blog.list_item.col-sm-6
                 header.text-muted
                   .creation_date
                     small запись от #{l(bp.created_at, format: :short)}
-                  .title
-                  = link_to bp.title, blog_post_path(bp)
+                  .title.ellipsis_container
+                    = link_to bp.title, blog_post_path(bp), title: bp.title, class: 'ellipsis_string'
                 .body
                   = bp.content
     .panel-footer

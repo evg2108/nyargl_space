@@ -5,11 +5,15 @@ class BasePermission
     end
 
     def create_params(*param_names)
-      actions[:create] = param_names
+      allowed_params_for :create, *param_names
     end
 
     def update_params(*param_names)
-      actions[:update] = param_names
+      allowed_params_for :update, *param_names
+    end
+
+    def allowed_params_for(action_name, *param_names)
+      actions[action_name] = param_names
     end
 
     def resource_name=(name)

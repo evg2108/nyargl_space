@@ -59,6 +59,9 @@ ru:
         create: "Зарегистрироваться"
       author:
         update: Сохранить
+      blog:
+        create: Создать блог
+        update: Сохранить изменения
       blog_post:
         create: Запостить
         update: Сохранить изменения

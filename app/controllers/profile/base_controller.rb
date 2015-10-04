@@ -1,7 +1,5 @@
 module Profile
   class BaseController < ApplicationController
-    include Pundit
-
     before_filter :do_authorize, :define_page_title
 
     layout 'profile'

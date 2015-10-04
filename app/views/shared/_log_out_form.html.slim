@@ -7,4 +7,5 @@
     = " #{t('.log_out')}"
 .pull-right
   = link_to 'Обо мне', author_path(current_author.has_slug? ? current_author : current_author.id, anchor: Anchors::CONTENT_SECTION), class: 'btn btn-link navbar-btn', data: { toggle: 'tooltip', placement: 'bottom' }, title: 'Перейти к авторской страничке'
+  /= link_to 'Мои блоги', my_blogs_path, class: 'btn btn-link navbar-btn', data: {toggle: 'tooltip', placement: 'bottom'}, title: 'Перейти к списку моих блогов' # Пока не знаю что с этим делать
   = link_to 'Профиль', profile_author_path(anchor: Anchors::CONTENT_SECTION), class: 'btn btn-link navbar-btn', data: {toggle: 'tooltip', placement: 'bottom'}, title: 'Перейти в профиль'

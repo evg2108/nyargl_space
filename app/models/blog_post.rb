@@ -1,5 +1,5 @@
 class BlogPost < ActiveRecord::Base
-  belongs_to :blog, inverse_of: :blog_posts
+  belongs_to :blog, inverse_of: :blog_posts, touch: true
   has_one :user, through: :blog
 
   after_create :set_as_last

@@ -40,6 +40,7 @@ class ProductDecorator < Draper::Decorator
 
   def description_formatted
     result = []
+    return '' if description.blank?
     description.split("\n").each do |paragraph|
       result << h.content_tag(:p, paragraph, class: 'text-justify') if paragraph.present?
     end

@@ -50,6 +50,10 @@ gem 'carrierwave-crop-on-fly'#, path: '/home/evg2108/Projects/carrierwave-crop-o
 
 gem 'nyargl_recaptcha'
 
+gem 'strong-permitter'
+
+gem 'thin', group: :development
+
 group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'

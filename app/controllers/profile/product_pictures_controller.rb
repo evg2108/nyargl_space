@@ -56,7 +56,7 @@ module Profile
     private
 
     def get_photos
-      [*params[:product][:pictures]].flatten.select { |elem| elem.is_a?(ActionDispatch::Http::UploadedFile) }
+      params.required(:product).required(:pictures).values
     end
 
     def do_authorize

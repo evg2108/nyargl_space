@@ -259,7 +259,7 @@ DEPENDENCIES
   pg
   pry-rails
   pundit
-  rails (~> 4.2.1)
+  rails (~> 4.2.5)
   rspec-rails
   russian
   sass-rails (~> 5.0)

@@ -55,7 +55,7 @@ module Profile
     private
 
     def get_photos
-      [*params[:author][:photos]].flatten.select { |elem| elem.is_a?(ActionDispatch::Http::UploadedFile) }
+      params.required(:author).required(:photos).values
     end
 
     def do_authorize

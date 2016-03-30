@@ -12,5 +12,5 @@ engines:
   fixme:
     enabled: true
 exclude_paths:
-- spec/**/*
-- "**/vendor/**/*"
+  - spec/**/*
+  - "**/vendor/**/*"

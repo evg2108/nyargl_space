@@ -7,6 +7,10 @@ engines:
     enabled: true
   csslint:
     enabled: true
+  coffeelint:
+    enabled: true
+  fixme:
+    enabled: true
   duplication:
     enabled: true
     config:
@@ -14,4 +18,5 @@ engines:
       - ruby
       - javascript
 exclude_paths:
+- spec/**/*
 - "**/vendor/**/*"

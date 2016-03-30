@@ -11,12 +11,6 @@ engines:
     enabled: true
   fixme:
     enabled: true
-  duplication:
-    enabled: true
-    config:
-      languages:
-      - ruby
-      - javascript
 exclude_paths:
 - spec/**/*
 - "**/vendor/**/*"

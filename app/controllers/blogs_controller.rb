@@ -14,6 +14,8 @@ class BlogsController < ApplicationController
     BlogPost.where(id: blogs.flat_map(&:last_blog_post_ids)).group_by{ |blog_post| blogs_by_id[blog_post.blog_id] }
   end
 
+  expose(:blog_posts) { policy_scope blog.blog_posts }
+
   helper_method :last_blog_posts_for
 
   def create

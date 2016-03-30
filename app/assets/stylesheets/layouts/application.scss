@@ -3,13 +3,13 @@
 //
 // This file must be required on any scss file for "application" layout
 //
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "shared/sticky_footer";
-@import "shared/custom_bootstrap_components/list_group_item_responsive";
-@import "shared/overrides_bootstrap/navbar_forms";
-@import "shared/overrides_bootstrap/buttons";
-@import "vendor/animate/animate";
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'shared/sticky_footer';
+@import 'shared/custom_bootstrap_components/list_group_item_responsive';
+@import 'shared/overrides_bootstrap/navbar_forms';
+@import 'shared/overrides_bootstrap/buttons';
+@import 'vendor/animate/animate';
 
 .navbar-brand img {
   border: 1px solid #ccc;

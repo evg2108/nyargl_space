@@ -1,10 +1,10 @@
-@import "layouts/application";
-@import "shared/application/profile";
-@import "jquery.jcrop";
-@import "jcrop_fix";
-@import "shared/custom_components/file_input";
-@import "shared/dropzone/custom";
-@import "shared/application/removed_pictures_list";
+@import 'layouts/application';
+@import 'shared/application/profile';
+@import 'jquery.jcrop';
+@import 'jcrop_fix';
+@import 'shared/custom_components/file_input';
+@import 'shared/dropzone/custom';
+@import 'shared/application/removed_pictures_list';
 
 input.toggle_button {
   width: 200px;

@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  subject { create :user }
+
   it { is_expected.to be_a(Roles) }
 
   it { is_expected.to have_one(:author).dependent(:destroy) }

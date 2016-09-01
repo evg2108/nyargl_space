@@ -31,4 +31,23 @@ class Author < ActiveRecord::Base
   def has_slug?
     !changed_attributes.has_key?(:slug) || changed_attributes[:slug].present?
   end
+
+  def append_photos photos
+    appended_photos = photos.map do |photo|
+      uploader = AuthorPhotoUploader.new(self, :photos)
+      uploader.store! photo
+      uploader
+    end
+    self[:photos] ||= []
+    self[:photos] += appended_photos.map{ |uploader| uploader.file.filename }
+  end
+
+  def remove_photo(photo_name)
+    photo_for_deleting = photos.detect { |photo| photo.file.basename == photo_name }
+    filename = photo_for_deleting.file.filename
+    if photo_for_deleting
+      photo_for_deleting.remove!
+      self[:photos] -= [filename]
+    end
+  end
 end

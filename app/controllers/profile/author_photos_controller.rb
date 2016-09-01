@@ -7,7 +7,7 @@ module Profile
 
     def create
       photos = current_author.photos_identifiers
-      current_author.photos += get_photos
+      current_author.append_photos get_photos
       result = current_author.save
 
       respond_to do |f|
@@ -28,13 +28,8 @@ module Profile
 
     def destroy
       photo_name = params[:id]
-      photo_for_deleting = current_author.photos.detect { |photo| photo.file.basename == photo_name}
-      if photo_for_deleting
-        photo_for_deleting.remove!
-        current_author.photos -= [photo_for_deleting]
-        current_author.remove_photos! if current_author.photos.empty?
-        result = current_author.save
-      end
+      current_author.remove_photo photo_name
+      result = current_author.save
 
       respond_to do |f|
         f.html do

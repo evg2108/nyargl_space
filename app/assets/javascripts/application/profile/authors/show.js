@@ -4,6 +4,7 @@
 //= require jcrop.js
 //= require shared/hacks/detect_ie_version.js
 //= require shared/custom/dropzone
+//= require shared/application/remote_forms
 //= require_self
 
 function _error_callback(xhr) {
@@ -25,4 +26,10 @@ $(document).ready(function() {
     }
 
     document.dropzone.init('author_photos_upload_form_dropzone', { paramName: 'author[photos]', uploadMultiple: true, parallelUploads: 5 });
+
+    document.remote_forms.init('.previews', '.image_remove_form', {
+        success: function(xhr) {
+            $('form#preview_' + xhr.responseJSON.name).closest('.preview').remove();
+        }
+    });
 });

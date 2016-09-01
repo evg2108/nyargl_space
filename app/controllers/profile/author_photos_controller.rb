@@ -1,7 +1,5 @@
 #coding: utf-8
 
-#TODO Пока не понятно как сделать чтобы уникальные имена файлов не генерировались заново при добавлении новых файлов
-## или при удалении существующих. Это мешает использовать приемущества AJAX. Задал вопрос в issues CarrierWave на github
 module Profile
   class AuthorPhotosController < Profile::BaseController
 

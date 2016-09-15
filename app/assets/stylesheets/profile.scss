@@ -1,0 +1,23 @@
+@import 'common';
+@import 'shared/profile/*';
+@import 'shared/dropzone';
+@import "jquery.jcrop";
+@import "jcrop_fix";
+
+.profile_navigation {
+  margin-top: 4px;
+
+  .profile_page {
+    padding: 15px;
+  }
+}
+
+input.toggle_button {
+  width: 200px;
+}
+
+.previewbox_wrapper {
+  border: #ccc 1px solid;
+  box-shadow: #999 3px 3px;
+  border-radius: 3px;
+}

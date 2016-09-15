@@ -2,6 +2,7 @@ doctype html
 html
   head
     = render partial: 'shared/meta'
+    = stylesheet_link_tag 'application', media: 'all'
     = yield :end_of_head
   body
     .data_elements.hidden

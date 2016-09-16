@@ -8,7 +8,7 @@ module Profile
 
     def create
       pictures = product.pictures_identifiers
-      product.pictures += get_photos
+      product.append_pictures get_pictures
       result = product.save
 
       respond_to do |f|
@@ -29,13 +29,8 @@ module Profile
 
     def destroy
       picture_name = params[:id]
-      photo_for_deleting = product.pictures.detect { |photo| photo.file.basename == picture_name}
-      if photo_for_deleting
-        photo_for_deleting.remove!
-        product.pictures -= [photo_for_deleting]
-        product.remove_pictures! if product.pictures.empty?
-        result = product.save
-      end
+      product.remove_picture picture_name
+      result = product.save
 
       respond_to do |f|
         f.html do
@@ -55,7 +50,7 @@ module Profile
 
     private
 
-    def get_photos
+    def get_pictures
       params.required(:product).required(:pictures).values
     end
 

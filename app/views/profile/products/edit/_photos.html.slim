@@ -5,8 +5,8 @@
         .previews
           .row
             - product_object.pictures.each do |picture|
-              .col-xs-5.col-sm-3.col-md-4.col-lg-3
-                = form_tag profile_product_picture_path(product_object, picture.file.basename), method: :delete, class: 'image_remove_form' do
+              .preview.col-xs-5.col-sm-3.col-md-4.col-lg-3
+                = form_tag profile_product_picture_path(product_object, picture.file.basename), method: :delete, class: 'image_remove_form', id: "preview_#{picture.file.basename}" do
                   = hidden_field_tag :anchor, Anchors::Profile::PRODUCT_PICTURES
                   = image_tag picture.small_thumb.url
                   .form-group.text-center

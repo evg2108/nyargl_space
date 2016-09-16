@@ -1,10 +1,11 @@
 class Author < ActiveRecord::Base
   include FriendlyId
+  include SmartUploaders
 
   friendly_id :full_name, use: [:slugged, :finders]
 
   mount_uploader :avatar, AuthorAvatarUploader
-  mount_uploaders :photos, AuthorPhotoUploader
+  mount_smart_uploaders :photos, AuthorPhotoUploader
 
   belongs_to :user
   has_many :products, through: :user

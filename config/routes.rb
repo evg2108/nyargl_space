@@ -16,7 +16,9 @@ Rails.application.routes.draw do
 
   resources :comments, only: [:create, :edit, :update, :destroy]
 
-  resources :blogs, only: [:index, :show]
+  resources :blogs, shallow: true do
+    resources :blog_posts, only: [:new, :create, :edit, :update, :destroy, :show]
+  end
   resources :forums, only: [:index, :show]
 
   namespace :profile do

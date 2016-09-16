@@ -7,8 +7,8 @@ article.author.list_item.col-sm-6
           = link_to author_path(author_ticket, anchor: Anchors::CONTENT_SECTION) do
             = image_tag image_path_or_placeholder(author_ticket, :avatar), class: 'thumb media-object'
         .media-body
-          h4.media-heading
-            = link_to author_ticket.full_name, author_path(author_ticket, anchor: Anchors::CONTENT_SECTION)
+          h4.media-heading.ellipsis_container
+            = link_to author_ticket.full_name, author_path(author_ticket, anchor: Anchors::CONTENT_SECTION), class: 'ellipsis_string', title: author_ticket.full_name
           p.lead-description.text-justify
             = author_ticket.in_few_words
     .panel-footer

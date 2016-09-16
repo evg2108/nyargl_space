@@ -1,4 +1,4 @@
-//= require vendor/dropzone/dropzone
+//= require vendor/dropzone
 //= require_self
 
 document.dropzone = (function($) {

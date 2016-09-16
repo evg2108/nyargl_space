@@ -1,0 +1,11 @@
+- set_page_title 'Создаём новый пост'
+
+.row
+  .col-sm-12
+    p Вы можете озаглавить ваш пост или оставить его без заголовка
+.row
+  .col-sm-12
+    = simple_form_for [blog, blog_post] do |f|
+      = f.input :title
+      = f.input :content
+      = f.button :submit

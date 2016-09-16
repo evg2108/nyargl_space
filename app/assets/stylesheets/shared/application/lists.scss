@@ -7,6 +7,14 @@
   .panel-body {
     height: 132px;
 
+    &.with_list {
+      height: 220px;
+
+      .lead-description {
+        height: 50px;
+      }
+    }
+
     .content {
       height: 100%;
     }

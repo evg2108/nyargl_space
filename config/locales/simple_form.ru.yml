@@ -34,6 +34,12 @@ ru:
         price: 'Цена, руб.'
         age_restriction: 'Возрастное ограничение'
         description: 'Описание'
+      blog:
+        title: 'Заголовок блога'
+        description: 'Описание блога'
+      blog_post:
+        title: 'Заголовок поста'
+        content: 'Текст поста'
     toggle_buttons:
       author:
         enabled:
@@ -53,6 +59,12 @@ ru:
         create: "Зарегистрироваться"
       author:
         update: Сохранить
+      blog:
+        create: Создать блог
+        update: Сохранить изменения
+      blog_post:
+        create: Запостить
+        update: Сохранить изменения
       product:
         create: "Перейти к заполнению данных \u27a4"
         update: Сохранить

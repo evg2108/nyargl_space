@@ -23,6 +23,7 @@ class CommentDecorator < Draper::Decorator
 
   def content_formatted(length = nil)
     result = []
+    return '' if content.blank?
     content.split("\n").each do |paragraph|
       result << h.content_tag(:p, paragraph, class: 'text-justify') if paragraph.present?
     end

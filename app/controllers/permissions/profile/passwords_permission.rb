@@ -1,5 +1,5 @@
 module Profile
-  class PasswordsPermission < BasePermission
+  class PasswordsPermission < StrongPermitter::Permission::Base
     self.resource_name = :user
 
     update_params :password

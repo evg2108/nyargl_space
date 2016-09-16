@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
+# ruby 2.3.0
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.1'
+gem 'rails', '~> 4.2.5'
 
 gem 'pg'
 # Use SCSS for stylesheets
@@ -50,10 +51,14 @@ gem 'carrierwave-crop-on-fly'#, path: '/home/evg2108/Projects/carrierwave-crop-o
 
 gem 'nyargl_recaptcha'
 
-group :development, :test do
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+gem 'strong-permitter'
 
+gem 'thin', group: :development
+
+# Access an IRB console on exception pages or by using <%= console %> in views
+gem 'web-console', '~> 2.0', group: :development
+
+group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 

@@ -1,0 +1,7 @@
+// This is a manifest file contains declaration requirements of stylesheets, that used on all pages
+// for "application" layout.
+//
+// This file must be required on any scss file for "application" layout
+//
+@import 'common';
+@import 'shared/application/*';

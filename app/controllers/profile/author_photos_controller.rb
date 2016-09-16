@@ -1,13 +1,11 @@
 #coding: utf-8
 
-#TODO Пока не понятно как сделать чтобы уникальные имена файлов не генерировались заново при добавлении новых файлов
-## или при удалении существующих. Это мешает использовать приемущества AJAX. Задал вопрос в issues CarrierWave на github
 module Profile
   class AuthorPhotosController < Profile::BaseController
 
     def create
       photos = current_author.photos_identifiers
-      current_author.photos += get_photos
+      current_author.append_photos get_photos
       result = current_author.save
 
       respond_to do |f|
@@ -28,13 +26,8 @@ module Profile
 
     def destroy
       photo_name = params[:id]
-      photo_for_deleting = current_author.photos.detect { |photo| photo.file.basename == photo_name}
-      if photo_for_deleting
-        photo_for_deleting.remove!
-        current_author.photos -= [photo_for_deleting]
-        current_author.remove_photos! if current_author.photos.empty?
-        result = current_author.save
-      end
+      current_author.remove_photo photo_name
+      result = current_author.save
 
       respond_to do |f|
         f.html do
@@ -55,7 +48,7 @@ module Profile
     private
 
     def get_photos
-      [*params[:author][:photos]].flatten.select { |elem| elem.is_a?(ActionDispatch::Http::UploadedFile) }
+      params.required(:author).required(:photos).values
     end
 
     def do_authorize

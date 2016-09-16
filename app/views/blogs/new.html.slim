@@ -1,0 +1,12 @@
+- set_page_title 'Вы решили завести блог'
+
+.row
+  .col-sm-12
+    p Для этого вам нужно указать название нового блога.
+    p Можете так же добавить описание, в котором вы укажете о чём этот блог. Это поможет заинтересовать людей
+.row
+  .col-sm-12
+    = simple_form_for blog do |f|
+      = f.input :title
+      = f.input :description
+      = f.button :submit

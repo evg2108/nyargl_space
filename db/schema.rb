@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150809085521) do
+ActiveRecord::Schema.define(version: 20150908121742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "authors", force: :cascade do |t|
     t.string   "first_name"
@@ -33,6 +34,23 @@ ActiveRecord::Schema.define(version: 20150809085521) do
 
   add_index "authors", ["slug"], name: "index_authors_on_slug", unique: true, using: :btree
   add_index "authors", ["user_id"], name: "index_authors_on_user_id", using: :btree
+
+  create_table "blog_posts", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "blog_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "blogs", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "last_blog_post_ids", default: [], null: false, array: true
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.integer  "commentable_id"

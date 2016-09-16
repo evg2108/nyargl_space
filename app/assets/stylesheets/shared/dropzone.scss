@@ -1,0 +1,10 @@
+@import 'vendor/dropzone/basic';
+@import 'vendor/dropzone/dropzone';
+
+.dropzone {
+  display: none;
+
+  .dz-preview .dz-image {
+    border: 1px solid #ccc;
+  }
+}

@@ -1,0 +1,27 @@
+@import 'shared/bootstrap';
+@import 'shared/animate';
+@import 'shared/recaptcha2';
+@import 'shared/sticky_footer';
+@import 'shared/common/*';
+
+.navbar-brand img {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0 2px;
+  background: forestgreen;
+}
+
+section.main_content {
+  margin-bottom: 20px;
+}
+
+.fix-indents {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+article.last_comment_item {
+  border-top: solid 1px #ddd;
+  margin-top: 10px;
+  padding-top: 5px;
+}

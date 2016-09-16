@@ -8,8 +8,8 @@ article.product.list_item.col-sm-6.col-md-12.col-lg-6
             = link_to product_path(product_ticket, anchor: Anchors::CONTENT_SECTION) do
               = image_tag image_path_or_placeholder(product_ticket, :pictures, :small_thumb), class: 'thumb media-object'
         .media-body
-          h4.media-heading
-            = link_to product_ticket.title, product_path(product_ticket, anchor: Anchors::CONTENT_SECTION), class: 'show', title: product_ticket.title
+          h4.media-heading.ellipsis_container
+            = link_to product_ticket.title, product_path(product_ticket, anchor: Anchors::CONTENT_SECTION), class: 'show ellipsis_string', title: product_ticket.title
           p.lead-description.text-justify
             = product_ticket.lead(180)
     .panel-footer.with_gap

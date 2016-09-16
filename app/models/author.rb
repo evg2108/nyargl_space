@@ -1,10 +1,11 @@
 class Author < ActiveRecord::Base
   include FriendlyId
+  include SmartUploaders
 
   friendly_id :full_name, use: [:slugged, :finders]
 
   mount_uploader :avatar, AuthorAvatarUploader
-  mount_uploaders :photos, AuthorPhotoUploader
+  mount_smart_uploaders :photos, AuthorPhotoUploader
 
   belongs_to :user
   has_many :products, through: :user
@@ -17,12 +18,13 @@ class Author < ActiveRecord::Base
   scope :only_enabled, ->(){ where(enabled: true) }
 
   def full_name
+    return @full_name if defined? @full_name
     full_name_array = []
     full_name_array << last_name if last_name.present?
     full_name_array << first_name
     full_name_array << patronymic if patronymic.present?
 
-    full_name_array.join(' ')
+    @full_name = full_name_array.join(' ')
   end
   alias_method :title, :full_name
 

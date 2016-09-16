@@ -30,10 +30,6 @@ module Profile
 
     private
 
-    def user_params
-      params.require(:user).permit()
-    end
-
     def do_authorize
       if action_name == 'update'
         authorize user

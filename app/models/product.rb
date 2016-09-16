@@ -1,9 +1,10 @@
 class Product < ActiveRecord::Base
   include FriendlyId
+  include SmartUploaders
 
   friendly_id :title, use: [:slugged, :finders]
 
-  mount_uploaders :pictures, ProductPictureUploader
+  mount_smart_uploaders :pictures, ProductPictureUploader
 
   belongs_to :user
   has_one :author, through: :user

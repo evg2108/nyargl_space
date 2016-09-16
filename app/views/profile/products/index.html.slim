@@ -13,8 +13,8 @@
           tbody
             - products.each do |product|
               tr id=product.id
-                td
-                  span.product_title
+                td.ellipsis_container
+                  span.product_title.ellipsis_string title=product.title
                     = product.title
                 td
                   = link_to '', edit_profile_product_path(product), class: 'btn btn-link glyphicon glyphicon-pencil'

@@ -1,7 +1,5 @@
 module Profile
   class ProductsController < Profile::BaseController
-    include Pundit
-
     expose(:product, attributes: :permitted_params)
     expose(:products) { current_user.products }
 

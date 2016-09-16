@@ -1,0 +1,32 @@
+.scrollable-container {
+  overflow: auto;
+  height: 100px;
+
+
+  .scrollable-wrapper {
+    @media (min-width: 0px)             { width: 600%; }
+    @media (min-width: $screen-xs-min)  { width: 300%; }
+    @media (min-width: 768px)           { width: 600%; }
+    @media (min-width: 910px)           { width: 300%; }
+    @media (min-width: $screen-md-min)  { width: 600%; }
+    @media (min-width: 1310px)          { width: 300%; }
+
+    .scrollable-item {
+      width: 16.66666667%;
+    }
+  }
+
+
+  .scrollable-item {
+    display: inline-block;
+    background: #f5f5f5;
+    height: 82px;
+    overflow: hidden;
+    float: left;
+    padding: 0 5px;
+
+    &:not(:first-child){
+      border-left: 1px solid #ccc;
+    }
+  }
+}

@@ -1,10 +1,9 @@
-//= require layouts/application
-//= require inputs/toggle_button_input
-//= require shared/application/noty_callbacks.js
+//= require common
+//= require shared/components/toggle_button_input
 //= require jcrop.js
 //= require shared/hacks/detect_ie_version.js
 //= require shared/custom/dropzone
-//= require shared/application/remote_forms
+//= require shared/components/remote_forms
 //= require_self
 
 function _error_callback(xhr) {

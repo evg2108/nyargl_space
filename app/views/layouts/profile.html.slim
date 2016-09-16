@@ -2,6 +2,7 @@ doctype html
 html
   head
     = render partial: 'shared/meta'
+    = javascript_include_tag "#{controller_path}"
     = stylesheet_link_tag 'profile', media: 'all'
     = yield :end_of_head
   body

@@ -1,6 +1,6 @@
-//= require layouts/application
+//= require common
 //= require shared/custom/dropzone
-//= require shared/application/remote_forms
+//= require shared/components/remote_forms
 //= require_self
 
 $(document).ready(function() {

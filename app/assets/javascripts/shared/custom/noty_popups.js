@@ -1,3 +1,6 @@
+//= require vendor/jquery.noty.packaged.min
+//= require_self
+
 function noty_popups_show() {
     var message_blocks = $('.popup_message');
 
@@ -22,4 +25,12 @@ function noty_show_message(message, type) {
             speed: 500 // opening & closing animation speed
         }
     });
+}
+
+function noty_error_callback(message) {
+    noty_show_message(message, 'error');
+}
+
+function noty_success_callback(message) {
+    noty_show_message(message, 'success');
 }

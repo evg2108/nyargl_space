@@ -6,8 +6,7 @@
 //= require jquery.js
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require vendor/noty/jquery.noty.packaged.min
-//= require shared/application/noty_popups
+//= require shared/custom/noty_popups
 //= require_self
 
 $(document).ready(function() {

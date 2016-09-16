@@ -1,5 +1,4 @@
-//= require shared/application/noty_callbacks
-//= require shared/application/remote_forms
+//= require shared/components/remote_forms
 //= require_self
 
 (function($) {

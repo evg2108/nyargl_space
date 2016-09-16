@@ -9,5 +9,5 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 Rails.application.config.assets.precompile += %w( application.css profile.css )
-Rails.application.config.assets.precompile += %w( application/*.js )
+Rails.application.config.assets.precompile += %w( application/*.js profile/*.js )
 Rails.application.config.assets.precompile += %w( shared/hacks/html5_and_responsive.js  )
